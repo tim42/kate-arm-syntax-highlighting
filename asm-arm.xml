@@ -1,0 +1,3827 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+<!--
+
+*************************************************************************
+*                                                                       *
+*               Syntax highlighting for the ARM Assembler               *
+*                   Copyright (C) 2015, Timothée Feuillet               *
+*                                                                       *
+*************************************************************************
+
+Author:   Timothée Feuillet
+Date:     23th Feb, 2015
+Version:  1.0
+
+This file contains the XML syntax highlighting description for the ARM
+Assembler, for KATE, the KDE Advanced Editor.
+
+This program, including associated files, is free software.  You may
+distribute it and/or modify it under the terms of the GNU General Public
+License as published by the Free Software Foundation; either Version 2 of
+the license, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+
+-->
+
+<language name="ARM Assembler (ARM1176JZF-S)" version="1.0" kateversion="3.5"
+          section="Assembler" extensions="*.s;*.S;*.asm" priority="0"
+          mimetype="text/x-asm;text/x-asm-arm"
+          author="Timothée Feuillet" license="GPL">
+  <highlighting>
+    <list name="core_registers">
+      <!-- core-registers -->
+      <item>r0</item>
+      <item>r1</item>
+      <item>r2</item>
+      <item>r3</item>
+      <item>r4</item>
+      <item>r5</item>
+      <item>r6</item>
+      <item>r7</item>
+      <item>r8</item>
+      <item>r9</item>
+      <item>r10</item>
+      <item>r11</item>
+      <item>r12</item>
+      <item>r13</item>
+      <item>r14</item>
+      <item>r15</item>
+
+      <item>cpsr</item>
+      <item>spsr</item>
+    </list>
+
+    <list name="fpa_registers">
+      <!-- fpa-registers -->
+      <item>f0</item>
+      <item>f1</item>
+      <item>f2</item>
+      <item>f3</item>
+      <item>f4</item>
+      <item>f5</item>
+      <item>f6</item>
+      <item>f7</item>
+    </list>
+
+    <list name="vfp_registers">
+      <!-- vfp-registers -->
+      <item>d0</item>
+      <item>d1</item>
+      <item>d2</item>
+      <item>d3</item>
+      <item>d4</item>
+      <item>d5</item>
+      <item>d6</item>
+      <item>d7</item>
+      <item>d8</item>
+      <item>d9</item>
+      <item>d10</item>
+      <item>d11</item>
+      <item>d12</item>
+      <item>d13</item>
+      <item>d14</item>
+      <item>d15</item>
+
+      <item>s0</item>
+      <item>s1</item>
+      <item>s2</item>
+      <item>s3</item>
+      <item>s4</item>
+      <item>s5</item>
+      <item>s6</item>
+      <item>s7</item>
+      <item>s8</item>
+      <item>s9</item>
+      <item>s10</item>
+      <item>s11</item>
+      <item>s12</item>
+      <item>s13</item>
+      <item>s14</item>
+      <item>s15</item>
+      <item>s16</item>
+      <item>s17</item>
+      <item>s18</item>
+      <item>s19</item>
+      <item>s20</item>
+      <item>s21</item>
+      <item>s22</item>
+      <item>s23</item>
+      <item>s24</item>
+      <item>s25</item>
+      <item>s26</item>
+      <item>s27</item>
+      <item>s28</item>
+      <item>s29</item>
+      <item>s30</item>
+      <item>s31</item>
+    </list>
+
+    <list name="alias_core_registers">
+      <item>a1</item>
+      <item>a2</item>
+      <item>a3</item>
+      <item>a4</item>
+      <item>v1</item>
+      <item>v2</item>
+      <item>v3</item>
+      <item>v4</item>
+      <item>v5</item>
+      <item>v6</item>
+      <item>v7</item>
+      <item>v8</item>
+      <item>sb</item>
+      <item>sl</item>
+      <item>fp</item>
+      <item>ip</item>
+      <item>sp</item>
+      <item>lr</item>
+      <item>pc</item>
+    </list>
+
+    <list name="coprocessor">
+      <item>p0</item>
+      <item>p1</item>
+      <item>p2</item>
+      <item>p3</item>
+      <item>p4</item>
+      <item>p5</item>
+      <item>p6</item>
+      <item>p7</item>
+      <item>p8</item>
+      <item>p9</item>
+      <item>p10</item>
+      <item>p11</item>
+      <item>p12</item>
+      <item>p13</item>
+      <item>p14</item>
+      <item>p15</item>
+    </list>
+
+    <list name="coprocessor_registers">
+      <item>c0</item>
+      <item>c1</item>
+      <item>c2</item>
+      <item>c3</item>
+      <item>c4</item>
+      <item>c5</item>
+      <item>c6</item>
+      <item>c7</item>
+      <item>c8</item>
+      <item>c9</item>
+      <item>c10</item>
+      <item>c11</item>
+      <item>c12</item>
+      <item>c13</item>
+      <item>c14</item>
+      <item>c15</item>
+    </list>
+
+    <list name="endianness">
+      <!-- fpa-registers -->
+      <item>BE</item>
+      <item>LE</item>
+    </list>
+
+    <list name="cps_flags">
+      <!-- fpa-registers -->
+      <item>#16</item>
+      <item>#17</item>
+      <item>#18</item>
+      <item>#19</item>
+      <item>#23</item>
+      <item>#27</item>
+      <item>#31</item>
+    </list>
+
+    <list name="cpsi_iflags">
+      <!-- fpa-registers -->
+      <item>a</item>
+      <item>i</item>
+      <item>f</item>
+    </list>
+
+    <list name="op2">
+      <!-- Operand2 -->
+      <item>LSL</item>
+      <item>LSR</item>
+      <item>ASR</item>
+      <item>ROR</item>
+      <item>RRX</item>
+    </list>
+
+    <list name="data_type">
+      <!-- Operand2 -->
+      <item>.2byte</item>
+      <item>.4byte</item>
+      <item>.8byte</item>
+      <item>.int</item>
+      <item>.float</item>
+      <item>.single</item>
+      <item>.double</item>
+      <item>.extend</item>
+      <item>.ldouble</item>
+      <item>.packed</item>
+      <item>.byte</item>
+      <item>.word</item>
+      <item>.hword</item>
+      <item>.quad</item>
+      <item>.long</item>
+      <item>.short</item>
+      <item>.long</item>
+      <item>.octa</item>
+      <item>.ascii</item>
+      <item>.asciz</item>
+      <item>.string</item>
+    </list>
+
+    <list name="directives">
+      <!-- directives -->
+      <item>.align</item>
+      <item>.req</item>
+      <item>.unreq</item>
+      <item>.dn</item>
+      <item>.qn</item>
+      <item>.code</item>
+      <item>.thumb</item>
+      <item>.arm</item>
+      <item>.force_thumb</item>
+      <item>.thumb_func</item>
+      <item>.thumb_set</item>
+      <item>.ltorg</item>
+      <item>.pool</item>
+      <item>.fnstart</item>
+      <item>.fnend</item>
+      <item>.cantunwind</item>
+      <item>.personality</item>
+      <item>.personality_index</item>
+      <item>.handlerdata</item>
+      <item>.save</item>
+      <item>.vsave</item>
+      <item>.pad</item>
+      <item>.movsp</item>
+      <item>.setfp</item>
+      <item>.raw</item>
+      <item>.cpu</item>
+      <item>.arch</item>
+      <item>.arch_extension</item>
+      <item>.object_arch</item>
+      <item>.fpu</item>
+      <item>.eabi_attribute</item>
+      <item>.align</item>
+      <item>.include</item>
+      <item>.syntax</item>
+      <item>.secrel32</item>
+      <item>.unwind_raw</item>
+
+      <item>.globl</item>
+      <item>.global</item>
+      <item>.appfile</item>
+      <item>.file</item>
+      <item>.abort</item>
+      <item>.balign</item>
+      <item>.balignw</item>
+      <item>.balignl</item>
+      <item>.comm</item>
+      <item>.def</item>
+      <item>.endef</item>
+      <item>.eject</item>
+      <item>.fill</item>
+      <item>.ident</item>
+      <item>.irp</item>
+      <item>.irpc</item>
+      <item>.endr</item>
+      <item>.lcomm</item>
+      <item>.lflags</item>
+      <item>.linkonce</item>
+      <item>.ln</item>
+      <item>.line</item>
+      <item>.mri</item>
+      <item>.list</item>
+      <item>.nolist</item>
+      <item>.org</item>
+      <item>.p2align</item>
+      <item>.psize</item>
+      <item>.rept</item>
+      <item>.sbttl</item>
+      <item>.scl</item>
+      <item>.set</item>
+      <item>.size</item>
+      <item>.skip</item>
+      <item>.space</item>
+      <item>.stabd</item>
+      <item>.stabn</item>
+      <item>.stabs</item>
+      <item>.tag</item>
+      <item>.text</item>
+      <item>.title</item>
+      <item>.type</item>
+      <item>.val</item>
+
+      <item>.extern</item>
+      <item>.ltorg</item>
+      <item>.macro</item>
+      <item>.endm</item>
+      <item>.purgem</item>
+      <item>.mexit</item>
+      <item>.data</item>
+      <item>.dcb</item>
+      <item>.save</item>
+      <item>.dn</item>
+      <item>.dn</item>
+      <item>.end</item>
+      <item>.space</item>
+      <item>.func</item>
+      <item>.endfunc</item>
+      <item>.if</item>
+      <item>.else</item>
+      <item>.endif</item>
+      <item>.ttl</item>
+      <item>.equ</item>
+      <item>.incbin</item>
+    </list>
+
+    <list name="conditional">
+      <item>eq</item>
+      <item>ne</item>
+      <item>hc</item>
+      <item>cs</item>
+      <item>lo</item>
+      <item>cc</item>
+      <item>mi</item>
+      <item>pl</item>
+      <item>vs</item>
+      <item>vc</item>
+      <item>hi</item>
+      <item>ls</item>
+      <item>ge</item>
+      <item>lt</item>
+      <item>gt</item>
+      <item>le</item>
+      <item>al</item>
+    </list>
+
+    <list name="pseudo_instructions">
+      <item>adr</item>
+      <item>adrl</item>
+      <item>ldr</item>
+      <item>nop</item>
+
+      <item>pop</item>
+      <item>popeq</item>
+      <item>popne</item>
+      <item>pophc</item>
+      <item>popcs</item>
+      <item>poplo</item>
+      <item>popcc</item>
+      <item>popmi</item>
+      <item>poppl</item>
+      <item>popvs</item>
+      <item>popvc</item>
+      <item>pophi</item>
+      <item>popls</item>
+      <item>popge</item>
+      <item>poplt</item>
+      <item>popgt</item>
+      <item>pople</item>
+      <item>popal</item>
+
+      <item>push</item>
+      <item>pusheq</item>
+      <item>pushne</item>
+      <item>pushhc</item>
+      <item>pushcs</item>
+      <item>pushlo</item>
+      <item>pushcc</item>
+      <item>pushmi</item>
+      <item>pushpl</item>
+      <item>pushvs</item>
+      <item>pushvc</item>
+      <item>pushhi</item>
+      <item>pushls</item>
+      <item>pushge</item>
+      <item>pushlt</item>
+      <item>pushgt</item>
+      <item>pushle</item>
+      <item>pushal</item>
+    </list>
+
+    <list name="thumb_instructions">
+      <item>mov</item>
+      <item>add</item>
+      <item>adc</item>
+      <item>sub</item>
+      <item>sbc</item>
+      <item>neg</item>
+      <item>mul</item>
+      <item>cmp</item>
+      <item>and</item>
+      <item>eor</item>
+      <item>orr</item>
+      <item>bic</item>
+      <item>mvn</item>
+      <item>tst</item>
+      <item>lsl</item>
+      <item>asr</item>
+      <item>ror</item>
+      <item>lsr</item>
+      <item>b</item>
+      <item>bl</item>
+      <item>blx</item>
+      <item>bx</item>
+      <item>ldr</item>
+      <item>ldrh</item>
+      <item>ldrb</item>
+      <item>ldrd</item>
+      <item>ldrsh</item>
+      <item>ldrsb</item>
+      <item>ldmiabx</item>
+      <item>str</item>
+      <item>strh</item>
+      <item>strb</item>
+      <item>strd</item>
+      <item>stmia</item>
+      <item>push</item>
+      <item>pop</item>
+      <item>cps</item>
+      <item>setend</item>
+      <item>rev</item>
+      <item>rev16</item>
+      <item>revsh</item>
+      <item>svc</item>
+      <item>bkpt</item>
+      <item>sxth</item>
+      <item>sxtb</item>
+      <item>uxth</item>
+      <item>uxtb</item>
+      <item>rev</item>
+      <item>rev</item>
+      <item>rev</item>
+      <item>rev</item>
+    </list>
+
+    <list name="instructions">
+      <item>it</item> <!-- autocompletion purposes only -->
+      <item>cpsid</item> <!-- autocompletion purposes only -->
+      <item>cpsie</item> <!-- autocompletion purposes only -->
+
+      <item>stmia</item>
+      <item>stmib</item>
+      <item>stmda</item>
+      <item>stmdb</item>
+
+      <item>ldmia</item>
+      <item>ldmib</item>
+      <item>ldmda</item>
+      <item>ldmdb</item>
+
+      <item>add</item>
+      <item>addeq</item>
+      <item>addne</item>
+      <item>addhc</item>
+      <item>addcs</item>
+      <item>addlo</item>
+      <item>addcc</item>
+      <item>addmi</item>
+      <item>addpl</item>
+      <item>addvs</item>
+      <item>addvc</item>
+      <item>addhi</item>
+      <item>addls</item>
+      <item>addge</item>
+      <item>addlt</item>
+      <item>addgt</item>
+      <item>addle</item>
+      <item>addal</item>
+
+      <item>adc</item>
+      <item>adceq</item>
+      <item>adcne</item>
+      <item>adchc</item>
+      <item>adccs</item>
+      <item>adclo</item>
+      <item>adccc</item>
+      <item>adcmi</item>
+      <item>adcpl</item>
+      <item>adcvs</item>
+      <item>adcvc</item>
+      <item>adchi</item>
+      <item>adcls</item>
+      <item>adcge</item>
+      <item>adclt</item>
+      <item>adcgt</item>
+      <item>adcle</item>
+      <item>adcal</item>
+
+      <item>sub</item>
+      <item>subeq</item>
+      <item>subne</item>
+      <item>subhc</item>
+      <item>subcs</item>
+      <item>sublo</item>
+      <item>subcc</item>
+      <item>submi</item>
+      <item>subpl</item>
+      <item>subvs</item>
+      <item>subvc</item>
+      <item>subhi</item>
+      <item>subls</item>
+      <item>subge</item>
+      <item>sublt</item>
+      <item>subgt</item>
+      <item>suble</item>
+      <item>subal</item>
+
+      <item>sbc</item>
+      <item>sbceq</item>
+      <item>sbcne</item>
+      <item>sbchc</item>
+      <item>sbccs</item>
+      <item>sbclo</item>
+      <item>sbccc</item>
+      <item>sbcmi</item>
+      <item>sbcpl</item>
+      <item>sbcvs</item>
+      <item>sbcvc</item>
+      <item>sbchi</item>
+      <item>sbcls</item>
+      <item>sbcge</item>
+      <item>sbclt</item>
+      <item>sbcgt</item>
+      <item>sbcle</item>
+      <item>sbcal</item>
+
+      <item>rsb</item>
+      <item>rsbeq</item>
+      <item>rsbne</item>
+      <item>rsbhc</item>
+      <item>rsbcs</item>
+      <item>rsblo</item>
+      <item>rsbcc</item>
+      <item>rsbmi</item>
+      <item>rsbpl</item>
+      <item>rsbvs</item>
+      <item>rsbvc</item>
+      <item>rsbhi</item>
+      <item>rsbls</item>
+      <item>rsbge</item>
+      <item>rsblt</item>
+      <item>rsbgt</item>
+      <item>rsble</item>
+      <item>rsbal</item>
+
+      <item>rsc</item>
+      <item>rsceq</item>
+      <item>rscne</item>
+      <item>rschc</item>
+      <item>rsccs</item>
+      <item>rsclo</item>
+      <item>rsccc</item>
+      <item>rscmi</item>
+      <item>rscpl</item>
+      <item>rscvs</item>
+      <item>rscvc</item>
+      <item>rschi</item>
+      <item>rscls</item>
+      <item>rscge</item>
+      <item>rsclt</item>
+      <item>rscgt</item>
+      <item>rscle</item>
+      <item>rscal</item>
+
+      <item>mul</item>
+      <item>muleq</item>
+      <item>mulne</item>
+      <item>mulhc</item>
+      <item>mulcs</item>
+      <item>mullo</item>
+      <item>mulcc</item>
+      <item>mulmi</item>
+      <item>mulpl</item>
+      <item>mulvs</item>
+      <item>mulvc</item>
+      <item>mulhi</item>
+      <item>mulls</item>
+      <item>mulge</item>
+      <item>mullt</item>
+      <item>mulgt</item>
+      <item>mulle</item>
+      <item>mulal</item>
+
+      <item>mla</item>
+      <item>mlaeq</item>
+      <item>mlane</item>
+      <item>mlahc</item>
+      <item>mlacs</item>
+      <item>mlalo</item>
+      <item>mlacc</item>
+      <item>mlami</item>
+      <item>mlapl</item>
+      <item>mlavs</item>
+      <item>mlavc</item>
+      <item>mlahi</item>
+      <item>mlals</item>
+      <item>mlage</item>
+      <item>mlalt</item>
+      <item>mlagt</item>
+      <item>mlale</item>
+      <item>mlaal</item>
+
+      <item>umull</item>
+      <item>umulleq</item>
+      <item>umullne</item>
+      <item>umullhc</item>
+      <item>umullcs</item>
+      <item>umulllo</item>
+      <item>umullcc</item>
+      <item>umullmi</item>
+      <item>umullpl</item>
+      <item>umullvs</item>
+      <item>umullvc</item>
+      <item>umullhi</item>
+      <item>umullls</item>
+      <item>umullge</item>
+      <item>umulllt</item>
+      <item>umullgt</item>
+      <item>umullle</item>
+      <item>umullal</item>
+
+      <item>umlal</item>
+      <item>umlaleq</item>
+      <item>umlalne</item>
+      <item>umlalhc</item>
+      <item>umlalcs</item>
+      <item>umlallo</item>
+      <item>umlalcc</item>
+      <item>umlalmi</item>
+      <item>umlalpl</item>
+      <item>umlalvs</item>
+      <item>umlalvc</item>
+      <item>umlalhi</item>
+      <item>umlalls</item>
+      <item>umlalge</item>
+      <item>umlallt</item>
+      <item>umlalgt</item>
+      <item>umlalle</item>
+      <item>umlalal</item>
+
+      <item>smull</item>
+      <item>smulleq</item>
+      <item>smullne</item>
+      <item>smullhc</item>
+      <item>smullcs</item>
+      <item>smulllo</item>
+      <item>smullcc</item>
+      <item>smullmi</item>
+      <item>smullpl</item>
+      <item>smullvs</item>
+      <item>smullvc</item>
+      <item>smullhi</item>
+      <item>smullls</item>
+      <item>smullge</item>
+      <item>smulllt</item>
+      <item>smullgt</item>
+      <item>smullle</item>
+      <item>smullal</item>
+
+      <item>smlal</item>
+      <item>smlaleq</item>
+      <item>smlalne</item>
+      <item>smlalhc</item>
+      <item>smlalcs</item>
+      <item>smlallo</item>
+      <item>smlalcc</item>
+      <item>smlalmi</item>
+      <item>smlalpl</item>
+      <item>smlalvs</item>
+      <item>smlalvc</item>
+      <item>smlalhi</item>
+      <item>smlalls</item>
+      <item>smlalge</item>
+      <item>smlallt</item>
+      <item>smlalgt</item>
+      <item>smlalle</item>
+      <item>smlalal</item>
+
+      <item>qadd</item>
+      <item>qaddeq</item>
+      <item>qaddne</item>
+      <item>qaddhc</item>
+      <item>qaddcs</item>
+      <item>qaddlo</item>
+      <item>qaddcc</item>
+      <item>qaddmi</item>
+      <item>qaddpl</item>
+      <item>qaddvs</item>
+      <item>qaddvc</item>
+      <item>qaddhi</item>
+      <item>qaddls</item>
+      <item>qaddge</item>
+      <item>qaddlt</item>
+      <item>qaddgt</item>
+      <item>qaddle</item>
+      <item>qaddal</item>
+
+      <item>qdadd</item>
+      <item>qdaddeq</item>
+      <item>qdaddne</item>
+      <item>qdaddhc</item>
+      <item>qdaddcs</item>
+      <item>qdaddlo</item>
+      <item>qdaddcc</item>
+      <item>qdaddmi</item>
+      <item>qdaddpl</item>
+      <item>qdaddvs</item>
+      <item>qdaddvc</item>
+      <item>qdaddhi</item>
+      <item>qdaddls</item>
+      <item>qdaddge</item>
+      <item>qdaddlt</item>
+      <item>qdaddgt</item>
+      <item>qdaddle</item>
+      <item>qdaddal</item>
+
+      <item>qsub</item>
+      <item>qsubeq</item>
+      <item>qsubne</item>
+      <item>qsubhc</item>
+      <item>qsubcs</item>
+      <item>qsublo</item>
+      <item>qsubcc</item>
+      <item>qsubmi</item>
+      <item>qsubpl</item>
+      <item>qsubvs</item>
+      <item>qsubvc</item>
+      <item>qsubhi</item>
+      <item>qsubls</item>
+      <item>qsubge</item>
+      <item>qsublt</item>
+      <item>qsubgt</item>
+      <item>qsuble</item>
+      <item>qsubal</item>
+
+      <item>qdsub</item>
+      <item>qdsubeq</item>
+      <item>qdsubne</item>
+      <item>qdsubhc</item>
+      <item>qdsubcs</item>
+      <item>qdsublo</item>
+      <item>qdsubcc</item>
+      <item>qdsubmi</item>
+      <item>qdsubpl</item>
+      <item>qdsubvs</item>
+      <item>qdsubvc</item>
+      <item>qdsubhi</item>
+      <item>qdsubls</item>
+      <item>qdsubge</item>
+      <item>qdsublt</item>
+      <item>qdsubgt</item>
+      <item>qdsuble</item>
+      <item>qdsubal</item>
+
+      <item>smultt</item>
+      <item>smultteq</item>
+      <item>smulttne</item>
+      <item>smultthc</item>
+      <item>smulttcs</item>
+      <item>smulttlo</item>
+      <item>smulttcc</item>
+      <item>smulttmi</item>
+      <item>smulttpl</item>
+      <item>smulttvs</item>
+      <item>smulttvc</item>
+      <item>smultthi</item>
+      <item>smulttls</item>
+      <item>smulttge</item>
+      <item>smulttlt</item>
+      <item>smulttgt</item>
+      <item>smulttle</item>
+      <item>smulttal</item>
+
+      <item>smultb</item>
+      <item>smultbeq</item>
+      <item>smultbne</item>
+      <item>smultbhc</item>
+      <item>smultbcs</item>
+      <item>smultblo</item>
+      <item>smultbcc</item>
+      <item>smultbmi</item>
+      <item>smultbpl</item>
+      <item>smultbvs</item>
+      <item>smultbvc</item>
+      <item>smultbhi</item>
+      <item>smultbls</item>
+      <item>smultbge</item>
+      <item>smultblt</item>
+      <item>smultbgt</item>
+      <item>smultble</item>
+      <item>smultbal</item>
+
+      <item>smulbt</item>
+      <item>smulbteq</item>
+      <item>smulbtne</item>
+      <item>smulbthc</item>
+      <item>smulbtcs</item>
+      <item>smulbtlo</item>
+      <item>smulbtcc</item>
+      <item>smulbtmi</item>
+      <item>smulbtpl</item>
+      <item>smulbtvs</item>
+      <item>smulbtvc</item>
+      <item>smulbthi</item>
+      <item>smulbtls</item>
+      <item>smulbtge</item>
+      <item>smulbtlt</item>
+      <item>smulbtgt</item>
+      <item>smulbtle</item>
+      <item>smulbtal</item>
+
+      <item>smulbb</item>
+      <item>smulbbeq</item>
+      <item>smulbbne</item>
+      <item>smulbbhc</item>
+      <item>smulbbcs</item>
+      <item>smulbblo</item>
+      <item>smulbbcc</item>
+      <item>smulbbmi</item>
+      <item>smulbbpl</item>
+      <item>smulbbvs</item>
+      <item>smulbbvc</item>
+      <item>smulbbhi</item>
+      <item>smulbbls</item>
+      <item>smulbbge</item>
+      <item>smulbblt</item>
+      <item>smulbbgt</item>
+      <item>smulbble</item>
+      <item>smulbbal</item>
+
+      <item>smlatt</item>
+      <item>smlatteq</item>
+      <item>smlattne</item>
+      <item>smlatthc</item>
+      <item>smlattcs</item>
+      <item>smlattlo</item>
+      <item>smlattcc</item>
+      <item>smlattmi</item>
+      <item>smlattpl</item>
+      <item>smlattvs</item>
+      <item>smlattvc</item>
+      <item>smlatthi</item>
+      <item>smlattls</item>
+      <item>smlattge</item>
+      <item>smlattlt</item>
+      <item>smlattgt</item>
+      <item>smlattle</item>
+      <item>smlattal</item>
+
+      <item>smlatb</item>
+      <item>smlatbeq</item>
+      <item>smlatbne</item>
+      <item>smlatbhc</item>
+      <item>smlatbcs</item>
+      <item>smlatblo</item>
+      <item>smlatbcc</item>
+      <item>smlatbmi</item>
+      <item>smlatbpl</item>
+      <item>smlatbvs</item>
+      <item>smlatbvc</item>
+      <item>smlatbhi</item>
+      <item>smlatbls</item>
+      <item>smlatbge</item>
+      <item>smlatblt</item>
+      <item>smlatbgt</item>
+      <item>smlatble</item>
+      <item>smlatbal</item>
+
+      <item>smlabt</item>
+      <item>smlabteq</item>
+      <item>smlabtne</item>
+      <item>smlabthc</item>
+      <item>smlabtcs</item>
+      <item>smlabtlo</item>
+      <item>smlabtcc</item>
+      <item>smlabtmi</item>
+      <item>smlabtpl</item>
+      <item>smlabtvs</item>
+      <item>smlabtvc</item>
+      <item>smlabthi</item>
+      <item>smlabtls</item>
+      <item>smlabtge</item>
+      <item>smlabtlt</item>
+      <item>smlabtgt</item>
+      <item>smlabtle</item>
+      <item>smlabtal</item>
+
+      <item>smlabb</item>
+      <item>smlabbeq</item>
+      <item>smlabbne</item>
+      <item>smlabbhc</item>
+      <item>smlabbcs</item>
+      <item>smlabblo</item>
+      <item>smlabbcc</item>
+      <item>smlabbmi</item>
+      <item>smlabbpl</item>
+      <item>smlabbvs</item>
+      <item>smlabbvc</item>
+      <item>smlabbhi</item>
+      <item>smlabbls</item>
+      <item>smlabbge</item>
+      <item>smlabblt</item>
+      <item>smlabbgt</item>
+      <item>smlabble</item>
+      <item>smlabbal</item>
+
+      <item>smulwt</item>
+      <item>smulwteq</item>
+      <item>smulwtne</item>
+      <item>smulwthc</item>
+      <item>smulwtcs</item>
+      <item>smulwtlo</item>
+      <item>smulwtcc</item>
+      <item>smulwtmi</item>
+      <item>smulwtpl</item>
+      <item>smulwtvs</item>
+      <item>smulwtvc</item>
+      <item>smulwthi</item>
+      <item>smulwtls</item>
+      <item>smulwtge</item>
+      <item>smulwtlt</item>
+      <item>smulwtgt</item>
+      <item>smulwtle</item>
+      <item>smulwtal</item>
+
+      <item>smulwb</item>
+      <item>smulwbeq</item>
+      <item>smulwbne</item>
+      <item>smulwbhc</item>
+      <item>smulwbcs</item>
+      <item>smulwblo</item>
+      <item>smulwbcc</item>
+      <item>smulwbmi</item>
+      <item>smulwbpl</item>
+      <item>smulwbvs</item>
+      <item>smulwbvc</item>
+      <item>smulwbhi</item>
+      <item>smulwbls</item>
+      <item>smulwbge</item>
+      <item>smulwblt</item>
+      <item>smulwbgt</item>
+      <item>smulwble</item>
+      <item>smulwbal</item>
+
+      <item>smlawt</item>
+      <item>smlawteq</item>
+      <item>smlawtne</item>
+      <item>smlawthc</item>
+      <item>smlawtcs</item>
+      <item>smlawtlo</item>
+      <item>smlawtcc</item>
+      <item>smlawtmi</item>
+      <item>smlawtpl</item>
+      <item>smlawtvs</item>
+      <item>smlawtvc</item>
+      <item>smlawthi</item>
+      <item>smlawtls</item>
+      <item>smlawtge</item>
+      <item>smlawtlt</item>
+      <item>smlawtgt</item>
+      <item>smlawtle</item>
+      <item>smlawtal</item>
+
+      <item>smlawb</item>
+      <item>smlawbeq</item>
+      <item>smlawbne</item>
+      <item>smlawbhc</item>
+      <item>smlawbcs</item>
+      <item>smlawblo</item>
+      <item>smlawbcc</item>
+      <item>smlawbmi</item>
+      <item>smlawbpl</item>
+      <item>smlawbvs</item>
+      <item>smlawbvc</item>
+      <item>smlawbhi</item>
+      <item>smlawbls</item>
+      <item>smlawbge</item>
+      <item>smlawblt</item>
+      <item>smlawbgt</item>
+      <item>smlawble</item>
+      <item>smlawbal</item>
+
+      <item>smlaltt</item>
+      <item>smlaltteq</item>
+      <item>smlalttne</item>
+      <item>smlaltthc</item>
+      <item>smlalttcs</item>
+      <item>smlalttlo</item>
+      <item>smlalttcc</item>
+      <item>smlalttmi</item>
+      <item>smlalttpl</item>
+      <item>smlalttvs</item>
+      <item>smlalttvc</item>
+      <item>smlaltthi</item>
+      <item>smlalttls</item>
+      <item>smlalttge</item>
+      <item>smlalttlt</item>
+      <item>smlalttgt</item>
+      <item>smlalttle</item>
+      <item>smlalttal</item>
+
+      <item>smlaltb</item>
+      <item>smlaltbeq</item>
+      <item>smlaltbne</item>
+      <item>smlaltbhc</item>
+      <item>smlaltbcs</item>
+      <item>smlaltblo</item>
+      <item>smlaltbcc</item>
+      <item>smlaltbmi</item>
+      <item>smlaltbpl</item>
+      <item>smlaltbvs</item>
+      <item>smlaltbvc</item>
+      <item>smlaltbhi</item>
+      <item>smlaltbls</item>
+      <item>smlaltbge</item>
+      <item>smlaltblt</item>
+      <item>smlaltbgt</item>
+      <item>smlaltble</item>
+      <item>smlaltbal</item>
+
+      <item>smlalbt</item>
+      <item>smlalbteq</item>
+      <item>smlalbtne</item>
+      <item>smlalbthc</item>
+      <item>smlalbtcs</item>
+      <item>smlalbtlo</item>
+      <item>smlalbtcc</item>
+      <item>smlalbtmi</item>
+      <item>smlalbtpl</item>
+      <item>smlalbtvs</item>
+      <item>smlalbtvc</item>
+      <item>smlalbthi</item>
+      <item>smlalbtls</item>
+      <item>smlalbtge</item>
+      <item>smlalbtlt</item>
+      <item>smlalbtgt</item>
+      <item>smlalbtle</item>
+      <item>smlalbtal</item>
+
+      <item>smlalbb</item>
+      <item>smlalbbeq</item>
+      <item>smlalbbne</item>
+      <item>smlalbbhc</item>
+      <item>smlalbbcs</item>
+      <item>smlalbblo</item>
+      <item>smlalbbcc</item>
+      <item>smlalbbmi</item>
+      <item>smlalbbpl</item>
+      <item>smlalbbvs</item>
+      <item>smlalbbvc</item>
+      <item>smlalbbhi</item>
+      <item>smlalbbls</item>
+      <item>smlalbbge</item>
+      <item>smlalbblt</item>
+      <item>smlalbbgt</item>
+      <item>smlalbble</item>
+      <item>smlalbbal</item>
+
+      <item>clz</item>
+      <item>clzeq</item>
+      <item>clzne</item>
+      <item>clzhc</item>
+      <item>clzcs</item>
+      <item>clzlo</item>
+      <item>clzcc</item>
+      <item>clzmi</item>
+      <item>clzpl</item>
+      <item>clzvs</item>
+      <item>clzvc</item>
+      <item>clzhi</item>
+      <item>clzls</item>
+      <item>clzge</item>
+      <item>clzlt</item>
+      <item>clzgt</item>
+      <item>clzle</item>
+      <item>clzal</item>
+
+      <item>cmp</item>
+      <item>cmpeq</item>
+      <item>cmpne</item>
+      <item>cmphc</item>
+      <item>cmpcs</item>
+      <item>cmplo</item>
+      <item>cmpcc</item>
+      <item>cmpmi</item>
+      <item>cmppl</item>
+      <item>cmpvs</item>
+      <item>cmpvc</item>
+      <item>cmphi</item>
+      <item>cmpls</item>
+      <item>cmpge</item>
+      <item>cmplt</item>
+      <item>cmpgt</item>
+      <item>cmple</item>
+      <item>cmpal</item>
+
+      <item>cmn</item>
+      <item>cmneq</item>
+      <item>cmnne</item>
+      <item>cmnhc</item>
+      <item>cmncs</item>
+      <item>cmnlo</item>
+      <item>cmncc</item>
+      <item>cmnmi</item>
+      <item>cmnpl</item>
+      <item>cmnvs</item>
+      <item>cmnvc</item>
+      <item>cmnhi</item>
+      <item>cmnls</item>
+      <item>cmnge</item>
+      <item>cmnlt</item>
+      <item>cmngt</item>
+      <item>cmnle</item>
+      <item>cmnal</item>
+
+      <item>mov</item>
+      <item>moveq</item>
+      <item>movne</item>
+      <item>movhc</item>
+      <item>movcs</item>
+      <item>movlo</item>
+      <item>movcc</item>
+      <item>movmi</item>
+      <item>movpl</item>
+      <item>movvs</item>
+      <item>movvc</item>
+      <item>movhi</item>
+      <item>movls</item>
+      <item>movge</item>
+      <item>movlt</item>
+      <item>movgt</item>
+      <item>movle</item>
+      <item>moval</item>
+
+      <item>mvn</item>
+      <item>mvneq</item>
+      <item>mvnne</item>
+      <item>mvnhc</item>
+      <item>mvncs</item>
+      <item>mvnlo</item>
+      <item>mvncc</item>
+      <item>mvnmi</item>
+      <item>mvnpl</item>
+      <item>mvnvs</item>
+      <item>mvnvc</item>
+      <item>mvnhi</item>
+      <item>mvnls</item>
+      <item>mvnge</item>
+      <item>mvnlt</item>
+      <item>mvngt</item>
+      <item>mvnle</item>
+      <item>mvnal</item>
+
+      <item>tst</item>
+      <item>tsteq</item>
+      <item>tstne</item>
+      <item>tsthc</item>
+      <item>tstcs</item>
+      <item>tstlo</item>
+      <item>tstcc</item>
+      <item>tstmi</item>
+      <item>tstpl</item>
+      <item>tstvs</item>
+      <item>tstvc</item>
+      <item>tsthi</item>
+      <item>tstls</item>
+      <item>tstge</item>
+      <item>tstlt</item>
+      <item>tstgt</item>
+      <item>tstle</item>
+      <item>tstal</item>
+
+      <item>teq</item>
+      <item>teqeq</item>
+      <item>teqne</item>
+      <item>teqhc</item>
+      <item>teqcs</item>
+      <item>teqlo</item>
+      <item>teqcc</item>
+      <item>teqmi</item>
+      <item>teqpl</item>
+      <item>teqvs</item>
+      <item>teqvc</item>
+      <item>teqhi</item>
+      <item>teqls</item>
+      <item>teqge</item>
+      <item>teqlt</item>
+      <item>teqgt</item>
+      <item>teqle</item>
+      <item>teqal</item>
+
+      <item>and</item>
+      <item>andeq</item>
+      <item>andne</item>
+      <item>andhc</item>
+      <item>andcs</item>
+      <item>andlo</item>
+      <item>andcc</item>
+      <item>andmi</item>
+      <item>andpl</item>
+      <item>andvs</item>
+      <item>andvc</item>
+      <item>andhi</item>
+      <item>andls</item>
+      <item>andge</item>
+      <item>andlt</item>
+      <item>andgt</item>
+      <item>andle</item>
+      <item>andal</item>
+
+      <item>eor</item>
+      <item>eoreq</item>
+      <item>eorne</item>
+      <item>eorhc</item>
+      <item>eorcs</item>
+      <item>eorlo</item>
+      <item>eorcc</item>
+      <item>eormi</item>
+      <item>eorpl</item>
+      <item>eorvs</item>
+      <item>eorvc</item>
+      <item>eorhi</item>
+      <item>eorls</item>
+      <item>eorge</item>
+      <item>eorlt</item>
+      <item>eorgt</item>
+      <item>eorle</item>
+      <item>eoral</item>
+
+      <item>orr</item>
+      <item>orreq</item>
+      <item>orrne</item>
+      <item>orrhc</item>
+      <item>orrcs</item>
+      <item>orrlo</item>
+      <item>orrcc</item>
+      <item>orrmi</item>
+      <item>orrpl</item>
+      <item>orrvs</item>
+      <item>orrvc</item>
+      <item>orrhi</item>
+      <item>orrls</item>
+      <item>orrge</item>
+      <item>orrlt</item>
+      <item>orrgt</item>
+      <item>orrle</item>
+      <item>orral</item>
+
+      <item>bic</item>
+      <item>biceq</item>
+      <item>bicne</item>
+      <item>bichc</item>
+      <item>biccs</item>
+      <item>biclo</item>
+      <item>biccc</item>
+      <item>bicmi</item>
+      <item>bicpl</item>
+      <item>bicvs</item>
+      <item>bicvc</item>
+      <item>bichi</item>
+      <item>bicls</item>
+      <item>bicge</item>
+      <item>biclt</item>
+      <item>bicgt</item>
+      <item>bicle</item>
+      <item>bical</item>
+
+      <item>cpy</item>
+      <item>cpyeq</item>
+      <item>cpyne</item>
+      <item>cpyhc</item>
+      <item>cpycs</item>
+      <item>cpylo</item>
+      <item>cpycc</item>
+      <item>cpymi</item>
+      <item>cpypl</item>
+      <item>cpyvs</item>
+      <item>cpyvc</item>
+      <item>cpyhi</item>
+      <item>cpyls</item>
+      <item>cpyge</item>
+      <item>cpylt</item>
+      <item>cpygt</item>
+      <item>cpyle</item>
+      <item>cpyal</item>
+
+      <item>b</item>
+      <item>beq</item>
+      <item>bne</item>
+      <item>bhc</item>
+      <item>bcs</item>
+      <item>blo</item>
+      <item>bcc</item>
+      <item>bmi</item>
+      <item>bpl</item>
+      <item>bvs</item>
+      <item>bvc</item>
+      <item>bhi</item>
+      <item>bls</item>
+      <item>bge</item>
+      <item>blt</item>
+      <item>bgt</item>
+      <item>ble</item>
+      <item>bal</item>
+
+      <item>bl</item>
+      <item>bleq</item>
+      <item>blne</item>
+      <item>blhc</item>
+      <item>blcs</item>
+      <item>bllo</item>
+      <item>blcc</item>
+      <item>blmi</item>
+      <item>blpl</item>
+      <item>blvs</item>
+      <item>blvc</item>
+      <item>blhi</item>
+      <item>blls</item>
+      <item>blge</item>
+      <item>bllt</item>
+      <item>blgt</item>
+      <item>blle</item>
+      <item>blal</item>
+
+      <item>bx</item>
+      <item>bxeq</item>
+      <item>bxne</item>
+      <item>bxhc</item>
+      <item>bxcs</item>
+      <item>bxlo</item>
+      <item>bxcc</item>
+      <item>bxmi</item>
+      <item>bxpl</item>
+      <item>bxvs</item>
+      <item>bxvc</item>
+      <item>bxhi</item>
+      <item>bxls</item>
+      <item>bxge</item>
+      <item>bxlt</item>
+      <item>bxgt</item>
+      <item>bxle</item>
+      <item>bxal</item>
+
+      <item>blx</item>
+      <item>blxeq</item>
+      <item>blxne</item>
+      <item>blxhc</item>
+      <item>blxcs</item>
+      <item>blxlo</item>
+      <item>blxcc</item>
+      <item>blxmi</item>
+      <item>blxpl</item>
+      <item>blxvs</item>
+      <item>blxvc</item>
+      <item>blxhi</item>
+      <item>blxls</item>
+      <item>blxge</item>
+      <item>blxlt</item>
+      <item>blxgt</item>
+      <item>blxle</item>
+      <item>blxal</item>
+
+      <item>bxj</item>
+      <item>bxjeq</item>
+      <item>bxjne</item>
+      <item>bxjhc</item>
+      <item>bxjcs</item>
+      <item>bxjlo</item>
+      <item>bxjcc</item>
+      <item>bxjmi</item>
+      <item>bxjpl</item>
+      <item>bxjvs</item>
+      <item>bxjvc</item>
+      <item>bxjhi</item>
+      <item>bxjls</item>
+      <item>bxjge</item>
+      <item>bxjlt</item>
+      <item>bxjgt</item>
+      <item>bxjle</item>
+      <item>bxjal</item>
+
+      <item>mrs</item>
+      <item>mrseq</item>
+      <item>mrsne</item>
+      <item>mrshc</item>
+      <item>mrscs</item>
+      <item>mrslo</item>
+      <item>mrscc</item>
+      <item>mrsmi</item>
+      <item>mrspl</item>
+      <item>mrsvs</item>
+      <item>mrsvc</item>
+      <item>mrshi</item>
+      <item>mrsls</item>
+      <item>mrsge</item>
+      <item>mrslt</item>
+      <item>mrsgt</item>
+      <item>mrsle</item>
+      <item>mrsal</item>
+
+      <item>msr</item>
+      <item>msreq</item>
+      <item>msrne</item>
+      <item>msrhc</item>
+      <item>msrcs</item>
+      <item>msrlo</item>
+      <item>msrcc</item>
+      <item>msrmi</item>
+      <item>msrpl</item>
+      <item>msrvs</item>
+      <item>msrvc</item>
+      <item>msrhi</item>
+      <item>msrls</item>
+      <item>msrge</item>
+      <item>msrlt</item>
+      <item>msrgt</item>
+      <item>msrle</item>
+      <item>msral</item>
+
+      <item>ldr</item>
+      <item>ldreq</item>
+      <item>ldrne</item>
+      <item>ldrhc</item>
+      <item>ldrcs</item>
+      <item>ldrlo</item>
+      <item>ldrcc</item>
+      <item>ldrmi</item>
+      <item>ldrpl</item>
+      <item>ldrvs</item>
+      <item>ldrvc</item>
+      <item>ldrhi</item>
+      <item>ldrls</item>
+      <item>ldrge</item>
+      <item>ldrlt</item>
+      <item>ldrgt</item>
+      <item>ldrle</item>
+      <item>ldral</item>
+
+      <item>rfe</item><!-- FIXME: no conditional -->
+
+      <item>ldm</item>
+      <item>ldmeq</item>
+      <item>ldmne</item>
+      <item>ldmhc</item>
+      <item>ldmcs</item>
+      <item>ldmlo</item>
+      <item>ldmcc</item>
+      <item>ldmmi</item>
+      <item>ldmpl</item>
+      <item>ldmvs</item>
+      <item>ldmvc</item>
+      <item>ldmhi</item>
+      <item>ldmls</item>
+      <item>ldmge</item>
+      <item>ldmlt</item>
+      <item>ldmgt</item>
+      <item>ldmle</item>
+      <item>ldmal</item>
+
+      <item>pld</item>
+      <item>pldeq</item>
+      <item>pldne</item>
+      <item>pldhc</item>
+      <item>pldcs</item>
+      <item>pldlo</item>
+      <item>pldcc</item>
+      <item>pldmi</item>
+      <item>pldpl</item>
+      <item>pldvs</item>
+      <item>pldvc</item>
+      <item>pldhi</item>
+      <item>pldls</item>
+      <item>pldge</item>
+      <item>pldlt</item>
+      <item>pldgt</item>
+      <item>pldle</item>
+      <item>pldal</item>
+
+      <item>str</item>
+      <item>streq</item>
+      <item>strne</item>
+      <item>strhc</item>
+      <item>strcs</item>
+      <item>strlo</item>
+      <item>strcc</item>
+      <item>strmi</item>
+      <item>strpl</item>
+      <item>strvs</item>
+      <item>strvc</item>
+      <item>strhi</item>
+      <item>strls</item>
+      <item>strge</item>
+      <item>strlt</item>
+      <item>strgt</item>
+      <item>strle</item>
+      <item>stral</item>
+
+      <item>srs</item><!-- FIXME: no conditional -->
+
+      <item>stm</item>
+      <item>stmeq</item>
+      <item>stmne</item>
+      <item>stmhc</item>
+      <item>stmcs</item>
+      <item>stmlo</item>
+      <item>stmcc</item>
+      <item>stmmi</item>
+      <item>stmpl</item>
+      <item>stmvs</item>
+      <item>stmvc</item>
+      <item>stmhi</item>
+      <item>stmls</item>
+      <item>stmge</item>
+      <item>stmlt</item>
+      <item>stmgt</item>
+      <item>stmle</item>
+      <item>stmal</item>
+
+      <item>swp</item>
+      <item>swpeq</item>
+      <item>swpne</item>
+      <item>swphc</item>
+      <item>swpcs</item>
+      <item>swplo</item>
+      <item>swpcc</item>
+      <item>swpmi</item>
+      <item>swppl</item>
+      <item>swpvs</item>
+      <item>swpvc</item>
+      <item>swphi</item>
+      <item>swpls</item>
+      <item>swpge</item>
+      <item>swplt</item>
+      <item>swpgt</item>
+      <item>swple</item>
+      <item>swpal</item>
+
+      <item>cps</item><!-- FIXME: no conditional -->
+
+      <item>setend</item><!-- FIXME: no conditional -->
+
+      <item>nop</item>
+      <item>nopeq</item>
+      <item>nopne</item>
+      <item>nophc</item>
+      <item>nopcs</item>
+      <item>noplo</item>
+      <item>nopcc</item>
+      <item>nopmi</item>
+      <item>noppl</item>
+      <item>nopvs</item>
+      <item>nopvc</item>
+      <item>nophi</item>
+      <item>nopls</item>
+      <item>nopge</item>
+      <item>noplt</item>
+      <item>nopgt</item>
+      <item>nople</item>
+      <item>nopal</item>
+
+      <item>yield</item>
+      <item>yieldeq</item>
+      <item>yieldne</item>
+      <item>yieldhc</item>
+      <item>yieldcs</item>
+      <item>yieldlo</item>
+      <item>yieldcc</item>
+      <item>yieldmi</item>
+      <item>yieldpl</item>
+      <item>yieldvs</item>
+      <item>yieldvc</item>
+      <item>yieldhi</item>
+      <item>yieldls</item>
+      <item>yieldge</item>
+      <item>yieldlt</item>
+      <item>yieldgt</item>
+      <item>yieldle</item>
+      <item>yieldal</item>
+
+      <item>rev</item>
+      <item>reveq</item>
+      <item>revne</item>
+      <item>revhc</item>
+      <item>revcs</item>
+      <item>revlo</item>
+      <item>revcc</item>
+      <item>revmi</item>
+      <item>revpl</item>
+      <item>revvs</item>
+      <item>revvc</item>
+      <item>revhi</item>
+      <item>revls</item>
+      <item>revge</item>
+      <item>revlt</item>
+      <item>revgt</item>
+      <item>revle</item>
+      <item>reval</item>
+
+      <item>rev16</item>
+      <item>rev16eq</item>
+      <item>rev16ne</item>
+      <item>rev16hc</item>
+      <item>rev16cs</item>
+      <item>rev16lo</item>
+      <item>rev16cc</item>
+      <item>rev16mi</item>
+      <item>rev16pl</item>
+      <item>rev16vs</item>
+      <item>rev16vc</item>
+      <item>rev16hi</item>
+      <item>rev16ls</item>
+      <item>rev16ge</item>
+      <item>rev16lt</item>
+      <item>rev16gt</item>
+      <item>rev16le</item>
+      <item>rev16al</item>
+
+      <item>revsh</item>
+      <item>revsheq</item>
+      <item>revshne</item>
+      <item>revshhc</item>
+      <item>revshcs</item>
+      <item>revshlo</item>
+      <item>revshcc</item>
+      <item>revshmi</item>
+      <item>revshpl</item>
+      <item>revshvs</item>
+      <item>revshvc</item>
+      <item>revshhi</item>
+      <item>revshls</item>
+      <item>revshge</item>
+      <item>revshlt</item>
+      <item>revshgt</item>
+      <item>revshle</item>
+      <item>revshal</item>
+
+      <item>ldrex</item>
+      <item>ldrexeq</item>
+      <item>ldrexne</item>
+      <item>ldrexhc</item>
+      <item>ldrexcs</item>
+      <item>ldrexlo</item>
+      <item>ldrexcc</item>
+      <item>ldrexmi</item>
+      <item>ldrexpl</item>
+      <item>ldrexvs</item>
+      <item>ldrexvc</item>
+      <item>ldrexhi</item>
+      <item>ldrexls</item>
+      <item>ldrexge</item>
+      <item>ldrexlt</item>
+      <item>ldrexgt</item>
+      <item>ldrexle</item>
+      <item>ldrexal</item>
+
+      <item>strex</item>
+      <item>strexeq</item>
+      <item>strexne</item>
+      <item>strexhc</item>
+      <item>strexcs</item>
+      <item>strexlo</item>
+      <item>strexcc</item>
+      <item>strexmi</item>
+      <item>strexpl</item>
+      <item>strexvs</item>
+      <item>strexvc</item>
+      <item>strexhi</item>
+      <item>strexls</item>
+      <item>strexge</item>
+      <item>strexlt</item>
+      <item>strexgt</item>
+      <item>strexle</item>
+      <item>strexal</item>
+
+      <item>ldrexb</item>
+      <item>ldrexbeq</item>
+      <item>ldrexbne</item>
+      <item>ldrexbhc</item>
+      <item>ldrexbcs</item>
+      <item>ldrexblo</item>
+      <item>ldrexbcc</item>
+      <item>ldrexbmi</item>
+      <item>ldrexbpl</item>
+      <item>ldrexbvs</item>
+      <item>ldrexbvc</item>
+      <item>ldrexbhi</item>
+      <item>ldrexbls</item>
+      <item>ldrexbge</item>
+      <item>ldrexblt</item>
+      <item>ldrexbgt</item>
+      <item>ldrexble</item>
+      <item>ldrexbal</item>
+
+      <item>ldrexh</item>
+      <item>ldrexheq</item>
+      <item>ldrexhne</item>
+      <item>ldrexhhc</item>
+      <item>ldrexhcs</item>
+      <item>ldrexhlo</item>
+      <item>ldrexhcc</item>
+      <item>ldrexhmi</item>
+      <item>ldrexhpl</item>
+      <item>ldrexhvs</item>
+      <item>ldrexhvc</item>
+      <item>ldrexhhi</item>
+      <item>ldrexhls</item>
+      <item>ldrexhge</item>
+      <item>ldrexhlt</item>
+      <item>ldrexhgt</item>
+      <item>ldrexhle</item>
+      <item>ldrexhal</item>
+
+      <item>ldrexd</item>
+      <item>ldrexdeq</item>
+      <item>ldrexdne</item>
+      <item>ldrexdhc</item>
+      <item>ldrexdcs</item>
+      <item>ldrexdlo</item>
+      <item>ldrexdcc</item>
+      <item>ldrexdmi</item>
+      <item>ldrexdpl</item>
+      <item>ldrexdvs</item>
+      <item>ldrexdvc</item>
+      <item>ldrexdhi</item>
+      <item>ldrexdls</item>
+      <item>ldrexdge</item>
+      <item>ldrexdlt</item>
+      <item>ldrexdgt</item>
+      <item>ldrexdle</item>
+      <item>ldrexdal</item>
+
+      <item>strexb</item>
+      <item>strexbeq</item>
+      <item>strexbne</item>
+      <item>strexbhc</item>
+      <item>strexbcs</item>
+      <item>strexblo</item>
+      <item>strexbcc</item>
+      <item>strexbmi</item>
+      <item>strexbpl</item>
+      <item>strexbvs</item>
+      <item>strexbvc</item>
+      <item>strexbhi</item>
+      <item>strexbls</item>
+      <item>strexbge</item>
+      <item>strexblt</item>
+      <item>strexbgt</item>
+      <item>strexble</item>
+      <item>strexbal</item>
+
+      <item>strexh</item>
+      <item>strexheq</item>
+      <item>strexhne</item>
+      <item>strexhhc</item>
+      <item>strexhcs</item>
+      <item>strexhlo</item>
+      <item>strexhcc</item>
+      <item>strexhmi</item>
+      <item>strexhpl</item>
+      <item>strexhvs</item>
+      <item>strexhvc</item>
+      <item>strexhhi</item>
+      <item>strexhls</item>
+      <item>strexhge</item>
+      <item>strexhlt</item>
+      <item>strexhgt</item>
+      <item>strexhle</item>
+      <item>strexhal</item>
+
+      <item>strexd</item>
+      <item>strexdeq</item>
+      <item>strexdne</item>
+      <item>strexdhc</item>
+      <item>strexdcs</item>
+      <item>strexdlo</item>
+      <item>strexdcc</item>
+      <item>strexdmi</item>
+      <item>strexdpl</item>
+      <item>strexdvs</item>
+      <item>strexdvc</item>
+      <item>strexdhi</item>
+      <item>strexdls</item>
+      <item>strexdge</item>
+      <item>strexdlt</item>
+      <item>strexdgt</item>
+      <item>strexdle</item>
+      <item>strexdal</item>
+
+      <item>clrex</item><!-- FIXME: no conditional -->
+
+      <item>cdp</item>
+      <item>cdpeq</item>
+      <item>cdpne</item>
+      <item>cdphc</item>
+      <item>cdpcs</item>
+      <item>cdplo</item>
+      <item>cdpcc</item>
+      <item>cdpmi</item>
+      <item>cdppl</item>
+      <item>cdpvs</item>
+      <item>cdpvc</item>
+      <item>cdphi</item>
+      <item>cdpls</item>
+      <item>cdpge</item>
+      <item>cdplt</item>
+      <item>cdpgt</item>
+      <item>cdple</item>
+      <item>cdpal</item>
+
+      <item>mrc</item>
+      <item>mrceq</item>
+      <item>mrcne</item>
+      <item>mrchc</item>
+      <item>mrccs</item>
+      <item>mrclo</item>
+      <item>mrccc</item>
+      <item>mrcmi</item>
+      <item>mrcpl</item>
+      <item>mrcvs</item>
+      <item>mrcvc</item>
+      <item>mrchi</item>
+      <item>mrcls</item>
+      <item>mrcge</item>
+      <item>mrclt</item>
+      <item>mrcgt</item>
+      <item>mrcle</item>
+      <item>mrcal</item>
+
+      <item>mcr</item>
+      <item>mcreq</item>
+      <item>mcrne</item>
+      <item>mcrhc</item>
+      <item>mcrcs</item>
+      <item>mcrlo</item>
+      <item>mcrcc</item>
+      <item>mcrmi</item>
+      <item>mcrpl</item>
+      <item>mcrvs</item>
+      <item>mcrvc</item>
+      <item>mcrhi</item>
+      <item>mcrls</item>
+      <item>mcrge</item>
+      <item>mcrlt</item>
+      <item>mcrgt</item>
+      <item>mcrle</item>
+      <item>mcral</item>
+
+      <item>mrrc</item>
+      <item>mrrceq</item>
+      <item>mrrcne</item>
+      <item>mrrchc</item>
+      <item>mrrccs</item>
+      <item>mrrclo</item>
+      <item>mrrccc</item>
+      <item>mrrcmi</item>
+      <item>mrrcpl</item>
+      <item>mrrcvs</item>
+      <item>mrrcvc</item>
+      <item>mrrchi</item>
+      <item>mrrcls</item>
+      <item>mrrcge</item>
+      <item>mrrclt</item>
+      <item>mrrcgt</item>
+      <item>mrrcle</item>
+      <item>mrrcal</item>
+
+      <item>mcrr</item>
+      <item>mcrreq</item>
+      <item>mcrrne</item>
+      <item>mcrrhc</item>
+      <item>mcrrcs</item>
+      <item>mcrrlo</item>
+      <item>mcrrcc</item>
+      <item>mcrrmi</item>
+      <item>mcrrpl</item>
+      <item>mcrrvs</item>
+      <item>mcrrvc</item>
+      <item>mcrrhi</item>
+      <item>mcrrls</item>
+      <item>mcrrge</item>
+      <item>mcrrlt</item>
+      <item>mcrrgt</item>
+      <item>mcrrle</item>
+      <item>mcrral</item>
+
+      <item>ldc</item>
+      <item>ldceq</item>
+      <item>ldcne</item>
+      <item>ldchc</item>
+      <item>ldccs</item>
+      <item>ldclo</item>
+      <item>ldccc</item>
+      <item>ldcmi</item>
+      <item>ldcpl</item>
+      <item>ldcvs</item>
+      <item>ldcvc</item>
+      <item>ldchi</item>
+      <item>ldcls</item>
+      <item>ldcge</item>
+      <item>ldclt</item>
+      <item>ldcgt</item>
+      <item>ldcle</item>
+      <item>ldcal</item>
+
+      <item>stc</item>
+      <item>stceq</item>
+      <item>stcne</item>
+      <item>stchc</item>
+      <item>stccs</item>
+      <item>stclo</item>
+      <item>stccc</item>
+      <item>stcmi</item>
+      <item>stcpl</item>
+      <item>stcvs</item>
+      <item>stcvc</item>
+      <item>stchi</item>
+      <item>stcls</item>
+      <item>stcge</item>
+      <item>stclt</item>
+      <item>stcgt</item>
+      <item>stcle</item>
+      <item>stcal</item>
+
+      <item>cdp2</item><!-- FIXME: no conditional -->
+      <item>mrc2</item><!-- FIXME: no conditional -->
+      <item>mcr2</item><!-- FIXME: no conditional -->
+      <item>mrrc2</item><!-- FIXME: no conditional -->
+      <item>mcrr2</item><!-- FIXME: no conditional -->
+      <item>ldc2</item><!-- FIXME: no conditional -->
+      <item>stc2</item><!-- FIXME: no conditional -->
+
+      <item>svc</item>
+      <item>svceq</item>
+      <item>svcne</item>
+      <item>svchc</item>
+      <item>svccs</item>
+      <item>svclo</item>
+      <item>svccc</item>
+      <item>svcmi</item>
+      <item>svcpl</item>
+      <item>svcvs</item>
+      <item>svcvc</item>
+      <item>svchi</item>
+      <item>svcls</item>
+      <item>svcge</item>
+      <item>svclt</item>
+      <item>svcgt</item>
+      <item>svcle</item>
+      <item>svcal</item>
+
+      <item>smc</item>
+      <item>smceq</item>
+      <item>smcne</item>
+      <item>smchc</item>
+      <item>smccs</item>
+      <item>smclo</item>
+      <item>smccc</item>
+      <item>smcmi</item>
+      <item>smcpl</item>
+      <item>smcvs</item>
+      <item>smcvc</item>
+      <item>smchi</item>
+      <item>smcls</item>
+      <item>smcge</item>
+      <item>smclt</item>
+      <item>smcgt</item>
+      <item>smcle</item>
+      <item>smcal</item>
+
+      <item>bkpt</item><!-- FIXME: no conditional -->
+
+      <item>sadd16</item>
+      <item>sadd16eq</item>
+      <item>sadd16ne</item>
+      <item>sadd16hc</item>
+      <item>sadd16cs</item>
+      <item>sadd16lo</item>
+      <item>sadd16cc</item>
+      <item>sadd16mi</item>
+      <item>sadd16pl</item>
+      <item>sadd16vs</item>
+      <item>sadd16vc</item>
+      <item>sadd16hi</item>
+      <item>sadd16ls</item>
+      <item>sadd16ge</item>
+      <item>sadd16lt</item>
+      <item>sadd16gt</item>
+      <item>sadd16le</item>
+      <item>sadd16al</item>
+
+      <item>qadd16</item>
+      <item>qadd16eq</item>
+      <item>qadd16ne</item>
+      <item>qadd16hc</item>
+      <item>qadd16cs</item>
+      <item>qadd16lo</item>
+      <item>qadd16cc</item>
+      <item>qadd16mi</item>
+      <item>qadd16pl</item>
+      <item>qadd16vs</item>
+      <item>qadd16vc</item>
+      <item>qadd16hi</item>
+      <item>qadd16ls</item>
+      <item>qadd16ge</item>
+      <item>qadd16lt</item>
+      <item>qadd16gt</item>
+      <item>qadd16le</item>
+      <item>qadd16al</item>
+
+      <item>shadd16</item>
+      <item>shadd16eq</item>
+      <item>shadd16ne</item>
+      <item>shadd16hc</item>
+      <item>shadd16cs</item>
+      <item>shadd16lo</item>
+      <item>shadd16cc</item>
+      <item>shadd16mi</item>
+      <item>shadd16pl</item>
+      <item>shadd16vs</item>
+      <item>shadd16vc</item>
+      <item>shadd16hi</item>
+      <item>shadd16ls</item>
+      <item>shadd16ge</item>
+      <item>shadd16lt</item>
+      <item>shadd16gt</item>
+      <item>shadd16le</item>
+      <item>shadd16al</item>
+
+      <item>uadd16</item>
+      <item>uadd16eq</item>
+      <item>uadd16ne</item>
+      <item>uadd16hc</item>
+      <item>uadd16cs</item>
+      <item>uadd16lo</item>
+      <item>uadd16cc</item>
+      <item>uadd16mi</item>
+      <item>uadd16pl</item>
+      <item>uadd16vs</item>
+      <item>uadd16vc</item>
+      <item>uadd16hi</item>
+      <item>uadd16ls</item>
+      <item>uadd16ge</item>
+      <item>uadd16lt</item>
+      <item>uadd16gt</item>
+      <item>uadd16le</item>
+      <item>uadd16al</item>
+
+      <item>uqadd16</item>
+      <item>uqadd16eq</item>
+      <item>uqadd16ne</item>
+      <item>uqadd16hc</item>
+      <item>uqadd16cs</item>
+      <item>uqadd16lo</item>
+      <item>uqadd16cc</item>
+      <item>uqadd16mi</item>
+      <item>uqadd16pl</item>
+      <item>uqadd16vs</item>
+      <item>uqadd16vc</item>
+      <item>uqadd16hi</item>
+      <item>uqadd16ls</item>
+      <item>uqadd16ge</item>
+      <item>uqadd16lt</item>
+      <item>uqadd16gt</item>
+      <item>uqadd16le</item>
+      <item>uqadd16al</item>
+
+      <item>uhadd16</item>
+      <item>uhadd16eq</item>
+      <item>uhadd16ne</item>
+      <item>uhadd16hc</item>
+      <item>uhadd16cs</item>
+      <item>uhadd16lo</item>
+      <item>uhadd16cc</item>
+      <item>uhadd16mi</item>
+      <item>uhadd16pl</item>
+      <item>uhadd16vs</item>
+      <item>uhadd16vc</item>
+      <item>uhadd16hi</item>
+      <item>uhadd16ls</item>
+      <item>uhadd16ge</item>
+      <item>uhadd16lt</item>
+      <item>uhadd16gt</item>
+      <item>uhadd16le</item>
+      <item>uhadd16al</item>
+
+      <item>saddsubx</item>
+      <item>saddsubxeq</item>
+      <item>saddsubxne</item>
+      <item>saddsubxhc</item>
+      <item>saddsubxcs</item>
+      <item>saddsubxlo</item>
+      <item>saddsubxcc</item>
+      <item>saddsubxmi</item>
+      <item>saddsubxpl</item>
+      <item>saddsubxvs</item>
+      <item>saddsubxvc</item>
+      <item>saddsubxhi</item>
+      <item>saddsubxls</item>
+      <item>saddsubxge</item>
+      <item>saddsubxlt</item>
+      <item>saddsubxgt</item>
+      <item>saddsubxle</item>
+      <item>saddsubxal</item>
+
+      <item>qaddsubx</item>
+      <item>qaddsubxeq</item>
+      <item>qaddsubxne</item>
+      <item>qaddsubxhc</item>
+      <item>qaddsubxcs</item>
+      <item>qaddsubxlo</item>
+      <item>qaddsubxcc</item>
+      <item>qaddsubxmi</item>
+      <item>qaddsubxpl</item>
+      <item>qaddsubxvs</item>
+      <item>qaddsubxvc</item>
+      <item>qaddsubxhi</item>
+      <item>qaddsubxls</item>
+      <item>qaddsubxge</item>
+      <item>qaddsubxlt</item>
+      <item>qaddsubxgt</item>
+      <item>qaddsubxle</item>
+      <item>qaddsubxal</item>
+
+      <item>shaddsubx</item>
+      <item>shaddsubxeq</item>
+      <item>shaddsubxne</item>
+      <item>shaddsubxhc</item>
+      <item>shaddsubxcs</item>
+      <item>shaddsubxlo</item>
+      <item>shaddsubxcc</item>
+      <item>shaddsubxmi</item>
+      <item>shaddsubxpl</item>
+      <item>shaddsubxvs</item>
+      <item>shaddsubxvc</item>
+      <item>shaddsubxhi</item>
+      <item>shaddsubxls</item>
+      <item>shaddsubxge</item>
+      <item>shaddsubxlt</item>
+      <item>shaddsubxgt</item>
+      <item>shaddsubxle</item>
+      <item>shaddsubxal</item>
+
+      <item>uaddsubx</item>
+      <item>uaddsubxeq</item>
+      <item>uaddsubxne</item>
+      <item>uaddsubxhc</item>
+      <item>uaddsubxcs</item>
+      <item>uaddsubxlo</item>
+      <item>uaddsubxcc</item>
+      <item>uaddsubxmi</item>
+      <item>uaddsubxpl</item>
+      <item>uaddsubxvs</item>
+      <item>uaddsubxvc</item>
+      <item>uaddsubxhi</item>
+      <item>uaddsubxls</item>
+      <item>uaddsubxge</item>
+      <item>uaddsubxlt</item>
+      <item>uaddsubxgt</item>
+      <item>uaddsubxle</item>
+      <item>uaddsubxal</item>
+
+      <item>uqaddsubx</item>
+      <item>uqaddsubxeq</item>
+      <item>uqaddsubxne</item>
+      <item>uqaddsubxhc</item>
+      <item>uqaddsubxcs</item>
+      <item>uqaddsubxlo</item>
+      <item>uqaddsubxcc</item>
+      <item>uqaddsubxmi</item>
+      <item>uqaddsubxpl</item>
+      <item>uqaddsubxvs</item>
+      <item>uqaddsubxvc</item>
+      <item>uqaddsubxhi</item>
+      <item>uqaddsubxls</item>
+      <item>uqaddsubxge</item>
+      <item>uqaddsubxlt</item>
+      <item>uqaddsubxgt</item>
+      <item>uqaddsubxle</item>
+      <item>uqaddsubxal</item>
+
+      <item>uhaddsubx</item>
+      <item>uhaddsubxeq</item>
+      <item>uhaddsubxne</item>
+      <item>uhaddsubxhc</item>
+      <item>uhaddsubxcs</item>
+      <item>uhaddsubxlo</item>
+      <item>uhaddsubxcc</item>
+      <item>uhaddsubxmi</item>
+      <item>uhaddsubxpl</item>
+      <item>uhaddsubxvs</item>
+      <item>uhaddsubxvc</item>
+      <item>uhaddsubxhi</item>
+      <item>uhaddsubxls</item>
+      <item>uhaddsubxge</item>
+      <item>uhaddsubxlt</item>
+      <item>uhaddsubxgt</item>
+      <item>uhaddsubxle</item>
+      <item>uhaddsubxal</item>
+
+      <item>ssubaddx</item>
+      <item>ssubaddxeq</item>
+      <item>ssubaddxne</item>
+      <item>ssubaddxhc</item>
+      <item>ssubaddxcs</item>
+      <item>ssubaddxlo</item>
+      <item>ssubaddxcc</item>
+      <item>ssubaddxmi</item>
+      <item>ssubaddxpl</item>
+      <item>ssubaddxvs</item>
+      <item>ssubaddxvc</item>
+      <item>ssubaddxhi</item>
+      <item>ssubaddxls</item>
+      <item>ssubaddxge</item>
+      <item>ssubaddxlt</item>
+      <item>ssubaddxgt</item>
+      <item>ssubaddxle</item>
+      <item>ssubaddxal</item>
+
+      <item>qsubaddx</item>
+      <item>qsubaddxeq</item>
+      <item>qsubaddxne</item>
+      <item>qsubaddxhc</item>
+      <item>qsubaddxcs</item>
+      <item>qsubaddxlo</item>
+      <item>qsubaddxcc</item>
+      <item>qsubaddxmi</item>
+      <item>qsubaddxpl</item>
+      <item>qsubaddxvs</item>
+      <item>qsubaddxvc</item>
+      <item>qsubaddxhi</item>
+      <item>qsubaddxls</item>
+      <item>qsubaddxge</item>
+      <item>qsubaddxlt</item>
+      <item>qsubaddxgt</item>
+      <item>qsubaddxle</item>
+      <item>qsubaddxal</item>
+
+      <item>shsubaddx</item>
+      <item>shsubaddxeq</item>
+      <item>shsubaddxne</item>
+      <item>shsubaddxhc</item>
+      <item>shsubaddxcs</item>
+      <item>shsubaddxlo</item>
+      <item>shsubaddxcc</item>
+      <item>shsubaddxmi</item>
+      <item>shsubaddxpl</item>
+      <item>shsubaddxvs</item>
+      <item>shsubaddxvc</item>
+      <item>shsubaddxhi</item>
+      <item>shsubaddxls</item>
+      <item>shsubaddxge</item>
+      <item>shsubaddxlt</item>
+      <item>shsubaddxgt</item>
+      <item>shsubaddxle</item>
+      <item>shsubaddxal</item>
+
+      <item>usubaddx</item>
+      <item>usubaddxeq</item>
+      <item>usubaddxne</item>
+      <item>usubaddxhc</item>
+      <item>usubaddxcs</item>
+      <item>usubaddxlo</item>
+      <item>usubaddxcc</item>
+      <item>usubaddxmi</item>
+      <item>usubaddxpl</item>
+      <item>usubaddxvs</item>
+      <item>usubaddxvc</item>
+      <item>usubaddxhi</item>
+      <item>usubaddxls</item>
+      <item>usubaddxge</item>
+      <item>usubaddxlt</item>
+      <item>usubaddxgt</item>
+      <item>usubaddxle</item>
+      <item>usubaddxal</item>
+
+      <item>uqsubaddx</item>
+      <item>uqsubaddxeq</item>
+      <item>uqsubaddxne</item>
+      <item>uqsubaddxhc</item>
+      <item>uqsubaddxcs</item>
+      <item>uqsubaddxlo</item>
+      <item>uqsubaddxcc</item>
+      <item>uqsubaddxmi</item>
+      <item>uqsubaddxpl</item>
+      <item>uqsubaddxvs</item>
+      <item>uqsubaddxvc</item>
+      <item>uqsubaddxhi</item>
+      <item>uqsubaddxls</item>
+      <item>uqsubaddxge</item>
+      <item>uqsubaddxlt</item>
+      <item>uqsubaddxgt</item>
+      <item>uqsubaddxle</item>
+      <item>uqsubaddxal</item>
+
+      <item>uhsubaddx</item>
+      <item>uhsubaddxeq</item>
+      <item>uhsubaddxne</item>
+      <item>uhsubaddxhc</item>
+      <item>uhsubaddxcs</item>
+      <item>uhsubaddxlo</item>
+      <item>uhsubaddxcc</item>
+      <item>uhsubaddxmi</item>
+      <item>uhsubaddxpl</item>
+      <item>uhsubaddxvs</item>
+      <item>uhsubaddxvc</item>
+      <item>uhsubaddxhi</item>
+      <item>uhsubaddxls</item>
+      <item>uhsubaddxge</item>
+      <item>uhsubaddxlt</item>
+      <item>uhsubaddxgt</item>
+      <item>uhsubaddxle</item>
+      <item>uhsubaddxal</item>
+
+      <item>ssub16</item>
+      <item>ssub16eq</item>
+      <item>ssub16ne</item>
+      <item>ssub16hc</item>
+      <item>ssub16cs</item>
+      <item>ssub16lo</item>
+      <item>ssub16cc</item>
+      <item>ssub16mi</item>
+      <item>ssub16pl</item>
+      <item>ssub16vs</item>
+      <item>ssub16vc</item>
+      <item>ssub16hi</item>
+      <item>ssub16ls</item>
+      <item>ssub16ge</item>
+      <item>ssub16lt</item>
+      <item>ssub16gt</item>
+      <item>ssub16le</item>
+      <item>ssub16al</item>
+
+      <item>qsub16</item>
+      <item>qsub16eq</item>
+      <item>qsub16ne</item>
+      <item>qsub16hc</item>
+      <item>qsub16cs</item>
+      <item>qsub16lo</item>
+      <item>qsub16cc</item>
+      <item>qsub16mi</item>
+      <item>qsub16pl</item>
+      <item>qsub16vs</item>
+      <item>qsub16vc</item>
+      <item>qsub16hi</item>
+      <item>qsub16ls</item>
+      <item>qsub16ge</item>
+      <item>qsub16lt</item>
+      <item>qsub16gt</item>
+      <item>qsub16le</item>
+      <item>qsub16al</item>
+
+      <item>shsub16</item>
+      <item>shsub16eq</item>
+      <item>shsub16ne</item>
+      <item>shsub16hc</item>
+      <item>shsub16cs</item>
+      <item>shsub16lo</item>
+      <item>shsub16cc</item>
+      <item>shsub16mi</item>
+      <item>shsub16pl</item>
+      <item>shsub16vs</item>
+      <item>shsub16vc</item>
+      <item>shsub16hi</item>
+      <item>shsub16ls</item>
+      <item>shsub16ge</item>
+      <item>shsub16lt</item>
+      <item>shsub16gt</item>
+      <item>shsub16le</item>
+      <item>shsub16al</item>
+
+      <item>usub16</item>
+      <item>usub16eq</item>
+      <item>usub16ne</item>
+      <item>usub16hc</item>
+      <item>usub16cs</item>
+      <item>usub16lo</item>
+      <item>usub16cc</item>
+      <item>usub16mi</item>
+      <item>usub16pl</item>
+      <item>usub16vs</item>
+      <item>usub16vc</item>
+      <item>usub16hi</item>
+      <item>usub16ls</item>
+      <item>usub16ge</item>
+      <item>usub16lt</item>
+      <item>usub16gt</item>
+      <item>usub16le</item>
+      <item>usub16al</item>
+
+      <item>uqsub16</item>
+      <item>uqsub16eq</item>
+      <item>uqsub16ne</item>
+      <item>uqsub16hc</item>
+      <item>uqsub16cs</item>
+      <item>uqsub16lo</item>
+      <item>uqsub16cc</item>
+      <item>uqsub16mi</item>
+      <item>uqsub16pl</item>
+      <item>uqsub16vs</item>
+      <item>uqsub16vc</item>
+      <item>uqsub16hi</item>
+      <item>uqsub16ls</item>
+      <item>uqsub16ge</item>
+      <item>uqsub16lt</item>
+      <item>uqsub16gt</item>
+      <item>uqsub16le</item>
+      <item>uqsub16al</item>
+
+      <item>uhsub16</item>
+      <item>uhsub16eq</item>
+      <item>uhsub16ne</item>
+      <item>uhsub16hc</item>
+      <item>uhsub16cs</item>
+      <item>uhsub16lo</item>
+      <item>uhsub16cc</item>
+      <item>uhsub16mi</item>
+      <item>uhsub16pl</item>
+      <item>uhsub16vs</item>
+      <item>uhsub16vc</item>
+      <item>uhsub16hi</item>
+      <item>uhsub16ls</item>
+      <item>uhsub16ge</item>
+      <item>uhsub16lt</item>
+      <item>uhsub16gt</item>
+      <item>uhsub16le</item>
+      <item>uhsub16al</item>
+
+      <item>sadd8</item>
+      <item>sadd8eq</item>
+      <item>sadd8ne</item>
+      <item>sadd8hc</item>
+      <item>sadd8cs</item>
+      <item>sadd8lo</item>
+      <item>sadd8cc</item>
+      <item>sadd8mi</item>
+      <item>sadd8pl</item>
+      <item>sadd8vs</item>
+      <item>sadd8vc</item>
+      <item>sadd8hi</item>
+      <item>sadd8ls</item>
+      <item>sadd8ge</item>
+      <item>sadd8lt</item>
+      <item>sadd8gt</item>
+      <item>sadd8le</item>
+      <item>sadd8al</item>
+
+      <item>qadd8</item>
+      <item>qadd8eq</item>
+      <item>qadd8ne</item>
+      <item>qadd8hc</item>
+      <item>qadd8cs</item>
+      <item>qadd8lo</item>
+      <item>qadd8cc</item>
+      <item>qadd8mi</item>
+      <item>qadd8pl</item>
+      <item>qadd8vs</item>
+      <item>qadd8vc</item>
+      <item>qadd8hi</item>
+      <item>qadd8ls</item>
+      <item>qadd8ge</item>
+      <item>qadd8lt</item>
+      <item>qadd8gt</item>
+      <item>qadd8le</item>
+      <item>qadd8al</item>
+
+      <item>shadd8</item>
+      <item>shadd8eq</item>
+      <item>shadd8ne</item>
+      <item>shadd8hc</item>
+      <item>shadd8cs</item>
+      <item>shadd8lo</item>
+      <item>shadd8cc</item>
+      <item>shadd8mi</item>
+      <item>shadd8pl</item>
+      <item>shadd8vs</item>
+      <item>shadd8vc</item>
+      <item>shadd8hi</item>
+      <item>shadd8ls</item>
+      <item>shadd8ge</item>
+      <item>shadd8lt</item>
+      <item>shadd8gt</item>
+      <item>shadd8le</item>
+      <item>shadd8al</item>
+
+      <item>uadd8</item>
+      <item>uadd8eq</item>
+      <item>uadd8ne</item>
+      <item>uadd8hc</item>
+      <item>uadd8cs</item>
+      <item>uadd8lo</item>
+      <item>uadd8cc</item>
+      <item>uadd8mi</item>
+      <item>uadd8pl</item>
+      <item>uadd8vs</item>
+      <item>uadd8vc</item>
+      <item>uadd8hi</item>
+      <item>uadd8ls</item>
+      <item>uadd8ge</item>
+      <item>uadd8lt</item>
+      <item>uadd8gt</item>
+      <item>uadd8le</item>
+      <item>uadd8al</item>
+
+      <item>uqadd8</item>
+      <item>uqadd8eq</item>
+      <item>uqadd8ne</item>
+      <item>uqadd8hc</item>
+      <item>uqadd8cs</item>
+      <item>uqadd8lo</item>
+      <item>uqadd8cc</item>
+      <item>uqadd8mi</item>
+      <item>uqadd8pl</item>
+      <item>uqadd8vs</item>
+      <item>uqadd8vc</item>
+      <item>uqadd8hi</item>
+      <item>uqadd8ls</item>
+      <item>uqadd8ge</item>
+      <item>uqadd8lt</item>
+      <item>uqadd8gt</item>
+      <item>uqadd8le</item>
+      <item>uqadd8al</item>
+
+      <item>uhadd8</item>
+      <item>uhadd8eq</item>
+      <item>uhadd8ne</item>
+      <item>uhadd8hc</item>
+      <item>uhadd8cs</item>
+      <item>uhadd8lo</item>
+      <item>uhadd8cc</item>
+      <item>uhadd8mi</item>
+      <item>uhadd8pl</item>
+      <item>uhadd8vs</item>
+      <item>uhadd8vc</item>
+      <item>uhadd8hi</item>
+      <item>uhadd8ls</item>
+      <item>uhadd8ge</item>
+      <item>uhadd8lt</item>
+      <item>uhadd8gt</item>
+      <item>uhadd8le</item>
+      <item>uhadd8al</item>
+
+      <item>ssub8</item>
+      <item>ssub8eq</item>
+      <item>ssub8ne</item>
+      <item>ssub8hc</item>
+      <item>ssub8cs</item>
+      <item>ssub8lo</item>
+      <item>ssub8cc</item>
+      <item>ssub8mi</item>
+      <item>ssub8pl</item>
+      <item>ssub8vs</item>
+      <item>ssub8vc</item>
+      <item>ssub8hi</item>
+      <item>ssub8ls</item>
+      <item>ssub8ge</item>
+      <item>ssub8lt</item>
+      <item>ssub8gt</item>
+      <item>ssub8le</item>
+      <item>ssub8al</item>
+
+      <item>qsub8</item>
+      <item>qsub8eq</item>
+      <item>qsub8ne</item>
+      <item>qsub8hc</item>
+      <item>qsub8cs</item>
+      <item>qsub8lo</item>
+      <item>qsub8cc</item>
+      <item>qsub8mi</item>
+      <item>qsub8pl</item>
+      <item>qsub8vs</item>
+      <item>qsub8vc</item>
+      <item>qsub8hi</item>
+      <item>qsub8ls</item>
+      <item>qsub8ge</item>
+      <item>qsub8lt</item>
+      <item>qsub8gt</item>
+      <item>qsub8le</item>
+      <item>qsub8al</item>
+
+      <item>shsub8</item>
+      <item>shsub8eq</item>
+      <item>shsub8ne</item>
+      <item>shsub8hc</item>
+      <item>shsub8cs</item>
+      <item>shsub8lo</item>
+      <item>shsub8cc</item>
+      <item>shsub8mi</item>
+      <item>shsub8pl</item>
+      <item>shsub8vs</item>
+      <item>shsub8vc</item>
+      <item>shsub8hi</item>
+      <item>shsub8ls</item>
+      <item>shsub8ge</item>
+      <item>shsub8lt</item>
+      <item>shsub8gt</item>
+      <item>shsub8le</item>
+      <item>shsub8al</item>
+
+      <item>usub8</item>
+      <item>usub8eq</item>
+      <item>usub8ne</item>
+      <item>usub8hc</item>
+      <item>usub8cs</item>
+      <item>usub8lo</item>
+      <item>usub8cc</item>
+      <item>usub8mi</item>
+      <item>usub8pl</item>
+      <item>usub8vs</item>
+      <item>usub8vc</item>
+      <item>usub8hi</item>
+      <item>usub8ls</item>
+      <item>usub8ge</item>
+      <item>usub8lt</item>
+      <item>usub8gt</item>
+      <item>usub8le</item>
+      <item>usub8al</item>
+
+      <item>uqsub8</item>
+      <item>uqsub8eq</item>
+      <item>uqsub8ne</item>
+      <item>uqsub8hc</item>
+      <item>uqsub8cs</item>
+      <item>uqsub8lo</item>
+      <item>uqsub8cc</item>
+      <item>uqsub8mi</item>
+      <item>uqsub8pl</item>
+      <item>uqsub8vs</item>
+      <item>uqsub8vc</item>
+      <item>uqsub8hi</item>
+      <item>uqsub8ls</item>
+      <item>uqsub8ge</item>
+      <item>uqsub8lt</item>
+      <item>uqsub8gt</item>
+      <item>uqsub8le</item>
+      <item>uqsub8al</item>
+
+      <item>uhsub8</item>
+      <item>uhsub8eq</item>
+      <item>uhsub8ne</item>
+      <item>uhsub8hc</item>
+      <item>uhsub8cs</item>
+      <item>uhsub8lo</item>
+      <item>uhsub8cc</item>
+      <item>uhsub8mi</item>
+      <item>uhsub8pl</item>
+      <item>uhsub8vs</item>
+      <item>uhsub8vc</item>
+      <item>uhsub8hi</item>
+      <item>uhsub8ls</item>
+      <item>uhsub8ge</item>
+      <item>uhsub8lt</item>
+      <item>uhsub8gt</item>
+      <item>uhsub8le</item>
+      <item>uhsub8al</item>
+
+      <item>usad8</item>
+      <item>usad8eq</item>
+      <item>usad8ne</item>
+      <item>usad8hc</item>
+      <item>usad8cs</item>
+      <item>usad8lo</item>
+      <item>usad8cc</item>
+      <item>usad8mi</item>
+      <item>usad8pl</item>
+      <item>usad8vs</item>
+      <item>usad8vc</item>
+      <item>usad8hi</item>
+      <item>usad8ls</item>
+      <item>usad8ge</item>
+      <item>usad8lt</item>
+      <item>usad8gt</item>
+      <item>usad8le</item>
+      <item>usad8al</item>
+
+      <item>usada8</item>
+      <item>usada8eq</item>
+      <item>usada8ne</item>
+      <item>usada8hc</item>
+      <item>usada8cs</item>
+      <item>usada8lo</item>
+      <item>usada8cc</item>
+      <item>usada8mi</item>
+      <item>usada8pl</item>
+      <item>usada8vs</item>
+      <item>usada8vc</item>
+      <item>usada8hi</item>
+      <item>usada8ls</item>
+      <item>usada8ge</item>
+      <item>usada8lt</item>
+      <item>usada8gt</item>
+      <item>usada8le</item>
+      <item>usada8al</item>
+
+      <item>sxtab16</item>
+      <item>sxtab16eq</item>
+      <item>sxtab16ne</item>
+      <item>sxtab16hc</item>
+      <item>sxtab16cs</item>
+      <item>sxtab16lo</item>
+      <item>sxtab16cc</item>
+      <item>sxtab16mi</item>
+      <item>sxtab16pl</item>
+      <item>sxtab16vs</item>
+      <item>sxtab16vc</item>
+      <item>sxtab16hi</item>
+      <item>sxtab16ls</item>
+      <item>sxtab16ge</item>
+      <item>sxtab16lt</item>
+      <item>sxtab16gt</item>
+      <item>sxtab16le</item>
+      <item>sxtab16al</item>
+
+      <item>sxtab</item>
+      <item>sxtabeq</item>
+      <item>sxtabne</item>
+      <item>sxtabhc</item>
+      <item>sxtabcs</item>
+      <item>sxtablo</item>
+      <item>sxtabcc</item>
+      <item>sxtabmi</item>
+      <item>sxtabpl</item>
+      <item>sxtabvs</item>
+      <item>sxtabvc</item>
+      <item>sxtabhi</item>
+      <item>sxtabls</item>
+      <item>sxtabge</item>
+      <item>sxtablt</item>
+      <item>sxtabgt</item>
+      <item>sxtable</item>
+      <item>sxtabal</item>
+
+      <item>sxtah</item>
+      <item>sxtaheq</item>
+      <item>sxtahne</item>
+      <item>sxtahhc</item>
+      <item>sxtahcs</item>
+      <item>sxtahlo</item>
+      <item>sxtahcc</item>
+      <item>sxtahmi</item>
+      <item>sxtahpl</item>
+      <item>sxtahvs</item>
+      <item>sxtahvc</item>
+      <item>sxtahhi</item>
+      <item>sxtahls</item>
+      <item>sxtahge</item>
+      <item>sxtahlt</item>
+      <item>sxtahgt</item>
+      <item>sxtahle</item>
+      <item>sxtahal</item>
+
+      <item>uxtab16</item>
+      <item>uxtab16eq</item>
+      <item>uxtab16ne</item>
+      <item>uxtab16hc</item>
+      <item>uxtab16cs</item>
+      <item>uxtab16lo</item>
+      <item>uxtab16cc</item>
+      <item>uxtab16mi</item>
+      <item>uxtab16pl</item>
+      <item>uxtab16vs</item>
+      <item>uxtab16vc</item>
+      <item>uxtab16hi</item>
+      <item>uxtab16ls</item>
+      <item>uxtab16ge</item>
+      <item>uxtab16lt</item>
+      <item>uxtab16gt</item>
+      <item>uxtab16le</item>
+      <item>uxtab16al</item>
+
+      <item>uxtab</item>
+      <item>uxtabeq</item>
+      <item>uxtabne</item>
+      <item>uxtabhc</item>
+      <item>uxtabcs</item>
+      <item>uxtablo</item>
+      <item>uxtabcc</item>
+      <item>uxtabmi</item>
+      <item>uxtabpl</item>
+      <item>uxtabvs</item>
+      <item>uxtabvc</item>
+      <item>uxtabhi</item>
+      <item>uxtabls</item>
+      <item>uxtabge</item>
+      <item>uxtablt</item>
+      <item>uxtabgt</item>
+      <item>uxtable</item>
+      <item>uxtabal</item>
+
+      <item>uxtah</item>
+      <item>uxtaheq</item>
+      <item>uxtahne</item>
+      <item>uxtahhc</item>
+      <item>uxtahcs</item>
+      <item>uxtahlo</item>
+      <item>uxtahcc</item>
+      <item>uxtahmi</item>
+      <item>uxtahpl</item>
+      <item>uxtahvs</item>
+      <item>uxtahvc</item>
+      <item>uxtahhi</item>
+      <item>uxtahls</item>
+      <item>uxtahge</item>
+      <item>uxtahlt</item>
+      <item>uxtahgt</item>
+      <item>uxtahle</item>
+      <item>uxtahal</item>
+
+      <item>sxtb16</item>
+      <item>sxtb16eq</item>
+      <item>sxtb16ne</item>
+      <item>sxtb16hc</item>
+      <item>sxtb16cs</item>
+      <item>sxtb16lo</item>
+      <item>sxtb16cc</item>
+      <item>sxtb16mi</item>
+      <item>sxtb16pl</item>
+      <item>sxtb16vs</item>
+      <item>sxtb16vc</item>
+      <item>sxtb16hi</item>
+      <item>sxtb16ls</item>
+      <item>sxtb16ge</item>
+      <item>sxtb16lt</item>
+      <item>sxtb16gt</item>
+      <item>sxtb16le</item>
+      <item>sxtb16al</item>
+
+      <item>sxtb</item>
+      <item>sxtbeq</item>
+      <item>sxtbne</item>
+      <item>sxtbhc</item>
+      <item>sxtbcs</item>
+      <item>sxtblo</item>
+      <item>sxtbcc</item>
+      <item>sxtbmi</item>
+      <item>sxtbpl</item>
+      <item>sxtbvs</item>
+      <item>sxtbvc</item>
+      <item>sxtbhi</item>
+      <item>sxtbls</item>
+      <item>sxtbge</item>
+      <item>sxtblt</item>
+      <item>sxtbgt</item>
+      <item>sxtble</item>
+      <item>sxtbal</item>
+
+      <item>sxth</item>
+      <item>sxtheq</item>
+      <item>sxthne</item>
+      <item>sxthhc</item>
+      <item>sxthcs</item>
+      <item>sxthlo</item>
+      <item>sxthcc</item>
+      <item>sxthmi</item>
+      <item>sxthpl</item>
+      <item>sxthvs</item>
+      <item>sxthvc</item>
+      <item>sxthhi</item>
+      <item>sxthls</item>
+      <item>sxthge</item>
+      <item>sxthlt</item>
+      <item>sxthgt</item>
+      <item>sxthle</item>
+      <item>sxthal</item>
+
+      <item>uxtb16</item>
+      <item>uxtb16eq</item>
+      <item>uxtb16ne</item>
+      <item>uxtb16hc</item>
+      <item>uxtb16cs</item>
+      <item>uxtb16lo</item>
+      <item>uxtb16cc</item>
+      <item>uxtb16mi</item>
+      <item>uxtb16pl</item>
+      <item>uxtb16vs</item>
+      <item>uxtb16vc</item>
+      <item>uxtb16hi</item>
+      <item>uxtb16ls</item>
+      <item>uxtb16ge</item>
+      <item>uxtb16lt</item>
+      <item>uxtb16gt</item>
+      <item>uxtb16le</item>
+      <item>uxtb16al</item>
+
+      <item>uxtb</item>
+      <item>uxtbeq</item>
+      <item>uxtbne</item>
+      <item>uxtbhc</item>
+      <item>uxtbcs</item>
+      <item>uxtblo</item>
+      <item>uxtbcc</item>
+      <item>uxtbmi</item>
+      <item>uxtbpl</item>
+      <item>uxtbvs</item>
+      <item>uxtbvc</item>
+      <item>uxtbhi</item>
+      <item>uxtbls</item>
+      <item>uxtbge</item>
+      <item>uxtblt</item>
+      <item>uxtbgt</item>
+      <item>uxtble</item>
+      <item>uxtbal</item>
+
+      <item>uxth</item>
+      <item>uxtheq</item>
+      <item>uxthne</item>
+      <item>uxthhc</item>
+      <item>uxthcs</item>
+      <item>uxthlo</item>
+      <item>uxthcc</item>
+      <item>uxthmi</item>
+      <item>uxthpl</item>
+      <item>uxthvs</item>
+      <item>uxthvc</item>
+      <item>uxthhi</item>
+      <item>uxthls</item>
+      <item>uxthge</item>
+      <item>uxthlt</item>
+      <item>uxthgt</item>
+      <item>uxthle</item>
+      <item>uxthal</item>
+
+      <item>smlad</item>
+      <item>smladeq</item>
+      <item>smladne</item>
+      <item>smladhc</item>
+      <item>smladcs</item>
+      <item>smladlo</item>
+      <item>smladcc</item>
+      <item>smladmi</item>
+      <item>smladpl</item>
+      <item>smladvs</item>
+      <item>smladvc</item>
+      <item>smladhi</item>
+      <item>smladls</item>
+      <item>smladge</item>
+      <item>smladlt</item>
+      <item>smladgt</item>
+      <item>smladle</item>
+      <item>smladal</item>
+
+      <item>smladx</item>
+      <item>smladxeq</item>
+      <item>smladxne</item>
+      <item>smladxhc</item>
+      <item>smladxcs</item>
+      <item>smladxlo</item>
+      <item>smladxcc</item>
+      <item>smladxmi</item>
+      <item>smladxpl</item>
+      <item>smladxvs</item>
+      <item>smladxvc</item>
+      <item>smladxhi</item>
+      <item>smladxls</item>
+      <item>smladxge</item>
+      <item>smladxlt</item>
+      <item>smladxgt</item>
+      <item>smladxle</item>
+      <item>smladxal</item>
+
+      <item>smlsd</item>
+      <item>smlsdeq</item>
+      <item>smlsdne</item>
+      <item>smlsdhc</item>
+      <item>smlsdcs</item>
+      <item>smlsdlo</item>
+      <item>smlsdcc</item>
+      <item>smlsdmi</item>
+      <item>smlsdpl</item>
+      <item>smlsdvs</item>
+      <item>smlsdvc</item>
+      <item>smlsdhi</item>
+      <item>smlsdls</item>
+      <item>smlsdge</item>
+      <item>smlsdlt</item>
+      <item>smlsdgt</item>
+      <item>smlsdle</item>
+      <item>smlsdal</item>
+
+      <item>smlsdx</item>
+      <item>smlsdxeq</item>
+      <item>smlsdxne</item>
+      <item>smlsdxhc</item>
+      <item>smlsdxcs</item>
+      <item>smlsdxlo</item>
+      <item>smlsdxcc</item>
+      <item>smlsdxmi</item>
+      <item>smlsdxpl</item>
+      <item>smlsdxvs</item>
+      <item>smlsdxvc</item>
+      <item>smlsdxhi</item>
+      <item>smlsdxls</item>
+      <item>smlsdxge</item>
+      <item>smlsdxlt</item>
+      <item>smlsdxgt</item>
+      <item>smlsdxle</item>
+      <item>smlsdxal</item>
+
+      <item>smlald</item>
+      <item>smlaldeq</item>
+      <item>smlaldne</item>
+      <item>smlaldhc</item>
+      <item>smlaldcs</item>
+      <item>smlaldlo</item>
+      <item>smlaldcc</item>
+      <item>smlaldmi</item>
+      <item>smlaldpl</item>
+      <item>smlaldvs</item>
+      <item>smlaldvc</item>
+      <item>smlaldhi</item>
+      <item>smlaldls</item>
+      <item>smlaldge</item>
+      <item>smlaldlt</item>
+      <item>smlaldgt</item>
+      <item>smlaldle</item>
+      <item>smlaldal</item>
+
+      <item>smlaldx</item>
+      <item>smlaldxeq</item>
+      <item>smlaldxne</item>
+      <item>smlaldxhc</item>
+      <item>smlaldxcs</item>
+      <item>smlaldxlo</item>
+      <item>smlaldxcc</item>
+      <item>smlaldxmi</item>
+      <item>smlaldxpl</item>
+      <item>smlaldxvs</item>
+      <item>smlaldxvc</item>
+      <item>smlaldxhi</item>
+      <item>smlaldxls</item>
+      <item>smlaldxge</item>
+      <item>smlaldxlt</item>
+      <item>smlaldxgt</item>
+      <item>smlaldxle</item>
+      <item>smlaldxal</item>
+
+      <item>smlsld</item>
+      <item>smlsldeq</item>
+      <item>smlsldne</item>
+      <item>smlsldhc</item>
+      <item>smlsldcs</item>
+      <item>smlsldlo</item>
+      <item>smlsldcc</item>
+      <item>smlsldmi</item>
+      <item>smlsldpl</item>
+      <item>smlsldvs</item>
+      <item>smlsldvc</item>
+      <item>smlsldhi</item>
+      <item>smlsldls</item>
+      <item>smlsldge</item>
+      <item>smlsldlt</item>
+      <item>smlsldgt</item>
+      <item>smlsldle</item>
+      <item>smlsldal</item>
+
+      <item>smlsldx</item>
+      <item>smlsldxeq</item>
+      <item>smlsldxne</item>
+      <item>smlsldxhc</item>
+      <item>smlsldxcs</item>
+      <item>smlsldxlo</item>
+      <item>smlsldxcc</item>
+      <item>smlsldxmi</item>
+      <item>smlsldxpl</item>
+      <item>smlsldxvs</item>
+      <item>smlsldxvc</item>
+      <item>smlsldxhi</item>
+      <item>smlsldxls</item>
+      <item>smlsldxge</item>
+      <item>smlsldxlt</item>
+      <item>smlsldxgt</item>
+      <item>smlsldxle</item>
+      <item>smlsldxal</item>
+
+      <item>smmla</item>
+      <item>smmlaeq</item>
+      <item>smmlane</item>
+      <item>smmlahc</item>
+      <item>smmlacs</item>
+      <item>smmlalo</item>
+      <item>smmlacc</item>
+      <item>smmlami</item>
+      <item>smmlapl</item>
+      <item>smmlavs</item>
+      <item>smmlavc</item>
+      <item>smmlahi</item>
+      <item>smmlals</item>
+      <item>smmlage</item>
+      <item>smmlalt</item>
+      <item>smmlagt</item>
+      <item>smmlale</item>
+      <item>smmlaal</item>
+
+      <item>smmlar</item>
+      <item>smmlareq</item>
+      <item>smmlarne</item>
+      <item>smmlarhc</item>
+      <item>smmlarcs</item>
+      <item>smmlarlo</item>
+      <item>smmlarcc</item>
+      <item>smmlarmi</item>
+      <item>smmlarpl</item>
+      <item>smmlarvs</item>
+      <item>smmlarvc</item>
+      <item>smmlarhi</item>
+      <item>smmlarls</item>
+      <item>smmlarge</item>
+      <item>smmlarlt</item>
+      <item>smmlargt</item>
+      <item>smmlarle</item>
+      <item>smmlaral</item>
+
+      <item>smmls</item>
+      <item>smmlseq</item>
+      <item>smmlsne</item>
+      <item>smmlshc</item>
+      <item>smmlscs</item>
+      <item>smmlslo</item>
+      <item>smmlscc</item>
+      <item>smmlsmi</item>
+      <item>smmlspl</item>
+      <item>smmlsvs</item>
+      <item>smmlsvc</item>
+      <item>smmlshi</item>
+      <item>smmlsls</item>
+      <item>smmlsge</item>
+      <item>smmlslt</item>
+      <item>smmlsgt</item>
+      <item>smmlsle</item>
+      <item>smmlsal</item>
+
+      <item>smmlsr</item>
+      <item>smmlsreq</item>
+      <item>smmlsrne</item>
+      <item>smmlsrhc</item>
+      <item>smmlsrcs</item>
+      <item>smmlsrlo</item>
+      <item>smmlsrcc</item>
+      <item>smmlsrmi</item>
+      <item>smmlsrpl</item>
+      <item>smmlsrvs</item>
+      <item>smmlsrvc</item>
+      <item>smmlsrhi</item>
+      <item>smmlsrls</item>
+      <item>smmlsrge</item>
+      <item>smmlsrlt</item>
+      <item>smmlsrgt</item>
+      <item>smmlsrle</item>
+      <item>smmlsral</item>
+
+      <item>smuad</item>
+      <item>smuadeq</item>
+      <item>smuadne</item>
+      <item>smuadhc</item>
+      <item>smuadcs</item>
+      <item>smuadlo</item>
+      <item>smuadcc</item>
+      <item>smuadmi</item>
+      <item>smuadpl</item>
+      <item>smuadvs</item>
+      <item>smuadvc</item>
+      <item>smuadhi</item>
+      <item>smuadls</item>
+      <item>smuadge</item>
+      <item>smuadlt</item>
+      <item>smuadgt</item>
+      <item>smuadle</item>
+      <item>smuadal</item>
+
+      <item>smuadx</item>
+      <item>smuadxeq</item>
+      <item>smuadxne</item>
+      <item>smuadxhc</item>
+      <item>smuadxcs</item>
+      <item>smuadxlo</item>
+      <item>smuadxcc</item>
+      <item>smuadxmi</item>
+      <item>smuadxpl</item>
+      <item>smuadxvs</item>
+      <item>smuadxvc</item>
+      <item>smuadxhi</item>
+      <item>smuadxls</item>
+      <item>smuadxge</item>
+      <item>smuadxlt</item>
+      <item>smuadxgt</item>
+      <item>smuadxle</item>
+      <item>smuadxal</item>
+
+      <item>smusd</item>
+      <item>smusdeq</item>
+      <item>smusdne</item>
+      <item>smusdhc</item>
+      <item>smusdcs</item>
+      <item>smusdlo</item>
+      <item>smusdcc</item>
+      <item>smusdmi</item>
+      <item>smusdpl</item>
+      <item>smusdvs</item>
+      <item>smusdvc</item>
+      <item>smusdhi</item>
+      <item>smusdls</item>
+      <item>smusdge</item>
+      <item>smusdlt</item>
+      <item>smusdgt</item>
+      <item>smusdle</item>
+      <item>smusdal</item>
+
+      <item>smusdx</item>
+      <item>smusdxeq</item>
+      <item>smusdxne</item>
+      <item>smusdxhc</item>
+      <item>smusdxcs</item>
+      <item>smusdxlo</item>
+      <item>smusdxcc</item>
+      <item>smusdxmi</item>
+      <item>smusdxpl</item>
+      <item>smusdxvs</item>
+      <item>smusdxvc</item>
+      <item>smusdxhi</item>
+      <item>smusdxls</item>
+      <item>smusdxge</item>
+      <item>smusdxlt</item>
+      <item>smusdxgt</item>
+      <item>smusdxle</item>
+      <item>smusdxal</item>
+
+      <item>smmul</item>
+      <item>smmuleq</item>
+      <item>smmulne</item>
+      <item>smmulhc</item>
+      <item>smmulcs</item>
+      <item>smmullo</item>
+      <item>smmulcc</item>
+      <item>smmulmi</item>
+      <item>smmulpl</item>
+      <item>smmulvs</item>
+      <item>smmulvc</item>
+      <item>smmulhi</item>
+      <item>smmulls</item>
+      <item>smmulge</item>
+      <item>smmullt</item>
+      <item>smmulgt</item>
+      <item>smmulle</item>
+      <item>smmulal</item>
+
+      <item>smmulr</item>
+      <item>smmulreq</item>
+      <item>smmulrne</item>
+      <item>smmulrhc</item>
+      <item>smmulrcs</item>
+      <item>smmulrlo</item>
+      <item>smmulrcc</item>
+      <item>smmulrmi</item>
+      <item>smmulrpl</item>
+      <item>smmulrvs</item>
+      <item>smmulrvc</item>
+      <item>smmulrhi</item>
+      <item>smmulrls</item>
+      <item>smmulrge</item>
+      <item>smmulrlt</item>
+      <item>smmulrgt</item>
+      <item>smmulrle</item>
+      <item>smmulral</item>
+
+      <item>umaal</item>
+      <item>umaaleq</item>
+      <item>umaalne</item>
+      <item>umaalhc</item>
+      <item>umaalcs</item>
+      <item>umaallo</item>
+      <item>umaalcc</item>
+      <item>umaalmi</item>
+      <item>umaalpl</item>
+      <item>umaalvs</item>
+      <item>umaalvc</item>
+      <item>umaalhi</item>
+      <item>umaalls</item>
+      <item>umaalge</item>
+      <item>umaallt</item>
+      <item>umaalgt</item>
+      <item>umaalle</item>
+      <item>umaalal</item>
+
+      <item>ssat</item>
+      <item>ssateq</item>
+      <item>ssatne</item>
+      <item>ssathc</item>
+      <item>ssatcs</item>
+      <item>ssatlo</item>
+      <item>ssatcc</item>
+      <item>ssatmi</item>
+      <item>ssatpl</item>
+      <item>ssatvs</item>
+      <item>ssatvc</item>
+      <item>ssathi</item>
+      <item>ssatls</item>
+      <item>ssatge</item>
+      <item>ssatlt</item>
+      <item>ssatgt</item>
+      <item>ssatle</item>
+      <item>ssatal</item>
+
+      <item>usat</item>
+      <item>usateq</item>
+      <item>usatne</item>
+      <item>usathc</item>
+      <item>usatcs</item>
+      <item>usatlo</item>
+      <item>usatcc</item>
+      <item>usatmi</item>
+      <item>usatpl</item>
+      <item>usatvs</item>
+      <item>usatvc</item>
+      <item>usathi</item>
+      <item>usatls</item>
+      <item>usatge</item>
+      <item>usatlt</item>
+      <item>usatgt</item>
+      <item>usatle</item>
+      <item>usatal</item>
+
+      <item>ssat16</item>
+      <item>ssat16eq</item>
+      <item>ssat16ne</item>
+      <item>ssat16hc</item>
+      <item>ssat16cs</item>
+      <item>ssat16lo</item>
+      <item>ssat16cc</item>
+      <item>ssat16mi</item>
+      <item>ssat16pl</item>
+      <item>ssat16vs</item>
+      <item>ssat16vc</item>
+      <item>ssat16hi</item>
+      <item>ssat16ls</item>
+      <item>ssat16ge</item>
+      <item>ssat16lt</item>
+      <item>ssat16gt</item>
+      <item>ssat16le</item>
+      <item>ssat16al</item>
+
+      <item>usat16</item>
+      <item>usat16eq</item>
+      <item>usat16ne</item>
+      <item>usat16hc</item>
+      <item>usat16cs</item>
+      <item>usat16lo</item>
+      <item>usat16cc</item>
+      <item>usat16mi</item>
+      <item>usat16pl</item>
+      <item>usat16vs</item>
+      <item>usat16vc</item>
+      <item>usat16hi</item>
+      <item>usat16ls</item>
+      <item>usat16ge</item>
+      <item>usat16lt</item>
+      <item>usat16gt</item>
+      <item>usat16le</item>
+      <item>usat16al</item>
+
+      <item>sel</item>
+      <item>seleq</item>
+      <item>selne</item>
+      <item>selhc</item>
+      <item>selcs</item>
+      <item>sello</item>
+      <item>selcc</item>
+      <item>selmi</item>
+      <item>selpl</item>
+      <item>selvs</item>
+      <item>selvc</item>
+      <item>selhi</item>
+      <item>sells</item>
+      <item>selge</item>
+      <item>sellt</item>
+      <item>selgt</item>
+      <item>selle</item>
+      <item>selal</item>
+
+      <item>pkhbt</item>
+      <item>pkhbteq</item>
+      <item>pkhbtne</item>
+      <item>pkhbthc</item>
+      <item>pkhbtcs</item>
+      <item>pkhbtlo</item>
+      <item>pkhbtcc</item>
+      <item>pkhbtmi</item>
+      <item>pkhbtpl</item>
+      <item>pkhbtvs</item>
+      <item>pkhbtvc</item>
+      <item>pkhbthi</item>
+      <item>pkhbtls</item>
+      <item>pkhbtge</item>
+      <item>pkhbtlt</item>
+      <item>pkhbtgt</item>
+      <item>pkhbtle</item>
+      <item>pkhbtal</item>
+
+      <item>pkhtb</item>
+      <item>pkhtbeq</item>
+      <item>pkhtbne</item>
+      <item>pkhtbhc</item>
+      <item>pkhtbcs</item>
+      <item>pkhtblo</item>
+      <item>pkhtbcc</item>
+      <item>pkhtbmi</item>
+      <item>pkhtbpl</item>
+      <item>pkhtbvs</item>
+      <item>pkhtbvc</item>
+      <item>pkhtbhi</item>
+      <item>pkhtbls</item>
+      <item>pkhtbge</item>
+      <item>pkhtblt</item>
+      <item>pkhtbgt</item>
+      <item>pkhtble</item>
+      <item>pkhtbal</item>
+    </list>
+
+    <contexts>
+      <context        attribute="Normal Text" lineEndContext="#stay" name="Normal">
+        <!-- special instructions handling -->
+        <WordDetect   attribute="Instruction" context="SetendInstruction" String="setend" />
+        <WordDetect   attribute="Instruction" context="CPSIInstruction" String="cpsid" />
+        <WordDetect   attribute="Instruction" context="CPSIInstruction" String="cpsie" />
+        <WordDetect   attribute="Instruction" context="CPSInstruction" String="cps" />
+
+        <!-- the special `it[te]{0,3}` instruction -->
+<!--         <Detect2Chars attribute="Instruction" context="Conditional" char="i" char1="t" /> -->
+        <RegExpr attribute="Instruction" context="Conditional" String="(^|\s|;)it" />
+
+        <!-- normal instruction handling -->
+        <keyword      attribute="Pseudo Instruction" context="Instruction" String="pseudo_instructions"/>
+        <keyword      attribute="Instruction" context="Instruction" String="instructions"/>
+        <keyword      attribute="Thumb Instruction" context="Instruction" String="thumb_instructions" />
+
+        <!-- directives -->
+        <WordDetect   attribute="AS Directive" context="Commentar 3" String=".end" beginRegion="Comment"/>
+        <WordDetect   attribute="AS Directive" context="MacroBegin" String=".macro" beginRegion="Macro"/>
+
+        <WordDetect   attribute="AS Directive" context="SectionDirective" String=".section" endRegion="Section" beginRegion="Section"/>
+        <keyword      attribute="AS Directive" context="Directive" String="directives"/>
+        <keyword      attribute="Data Type" context="DataType" String="data_type"/>
+
+        <!-- labels declaration -->
+        <RegExpr      attribute="Local Label" context="#stay" String="[A-Za-z0-9_.$]+\$:"/>
+        <RegExpr      attribute="Local Label" context="#stay" String="\.[A-Za-z0-9_.$]+:"/>
+        <RegExpr      attribute="Label" context="#stay" String="[A-Za-z0-9_.$]+:"/>
+
+        <!-- consume -->
+        <HlCOct       attribute="Octal" context="#stay"/>
+        <HlCHex       attribute="Hex" context="#stay"/>
+        <RegExpr      attribute="Binary" context="#stay" String="[bB][01]+" />
+        <Int          attribute="Decimal" context="#stay" />
+        <Float        attribute="Float" context="#stay" />
+        <RegExpr      attribute="Normal Text" context="#stay" String="[a-bA-B0-9._$]+" />
+
+        <RegExpr      attribute="Char" context="#stay" String="'(\\x[0-9a-fA-F][0-9a-fA-F]?|\\[0-7]?[0-7]?[0-7]?|\\.|.)'" />
+        <DetectChar   attribute="String" context="String" char="&quot;" />
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="#" firstNonSpace="true" />
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@" />
+
+        <DetectChar   attribute="Normal Text" context="#stay" char=";" />
+
+        <AnyChar      attribute="Symbol" context="#stay" String="!#%&amp;*()+,-&lt;=&gt;?/:^{|}~" />
+      </context>
+
+      <!-- a single instruction (allow a 'smarter' auto-completion) -->
+      <context        attribute="Normal Text" lineEndContext="#pop" name="Instruction">
+        <keyword      attribute="Core Register" context="#stay" String="core_registers"/>
+        <keyword      attribute="Core Register Alias" context="#stay" String="alias_core_registers"/>
+        <keyword      attribute="VFP Register" context="#stay" String="vfp_registers"/>
+        <keyword      attribute="FPA Register" context="#stay" String="fpa_registers"/>
+
+        <keyword      attribute="Coprocessor" context="#stay" String="coprocessor" />
+        <keyword      attribute="Coprocessor Register" context="#stay" String="coprocessor_registers" />
+        <keyword      attribute="Operand2" context="Immediate" String="op2"/>
+
+        <RegExpr      attribute="Indirect" context="#stay" String="\[|\]"/>
+        <RegExpr      attribute="Hex" context="#stay" String="(#|=|\$|)0x[0-9A-F]+"/>
+        <RegExpr      attribute="Octal" context="#stay" String="(#|=|\$|)0[0-7]+"/>
+        <RegExpr      attribute="Binary" context="#stay" String="(#|=|\$|)[bB][01]+" />
+        <RegExpr      attribute="Decimal" context="#stay" String="(#|=|\$|)[-+]?[0-9]+" />
+        <RegExpr      attribute="Float" context="#stay" String="0[fFeEdD][-+]?[0-9]*\.?[0-9]*[eE]?[-+]?[0-9]+" />
+
+        <RegExpr      attribute="Local Label Use" context="#stay" String="[A-Za-z0-9_.$]+\$" firstNonSpace="false" />
+        <RegExpr      attribute="Local Label Use" context="#stay" String="\.[A-Za-z0-9_.$]+" firstNonSpace="false" />
+        <RegExpr      attribute="Label Use" context="#stay" String="[A-Za-z0-9_.$]+" firstNonSpace="false"/>
+
+        <RegExpr      attribute="Char" context="#stay" String="'(\\x[0-9a-fA-F][0-9a-fA-F]?|\\[0-7]?[0-7]?[0-7]?|\\.|.)'" />
+        <DetectChar   attribute="String" context="String" char="&quot;" />
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+
+        <DetectChar   attribute="Normal Text" context="#pop" char=";" />
+
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+      </context>
+
+      <!-- for macro -->
+      <context        attribute="Normal Text" lineEndContext="#stay" name="MacroBegin">
+
+        <RegExpr      attribute="Label Use" context="MacroParameters" String="[A-Za-z0-9_.$]+"/>
+
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+      </context>
+
+      <context        attribute="Normal Text" lineEndContext="Macro" name="MacroParameters">
+        <HlCOct       attribute="Octal" context="#stay"/>
+        <HlCHex       attribute="Hex" context="#stay"/>
+        <RegExpr      attribute="Binary" context="#stay" String="[bB][01]+" />
+        <Int          attribute="Decimal" context="#stay" />
+        <Float        attribute="Float" context="#stay" />
+
+        <RegExpr      attribute="Char" context="#stay" String="'(\\x[0-9a-fA-F][0-9a-fA-F]?|\\[0-7]?[0-7]?[0-7]?|\\.|.)'" />
+        <DetectChar   attribute="String" context="String" char="&quot;" />
+
+        <RegExpr      attribute="Macro Parameter" context="#stay" String="[A-Za-z_.$][A-Za-z0-9_.$]+"/>
+
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+      </context>
+
+      <!-- the body of the macro -->
+      <context        attribute="Preprocessor" lineEndContext="#stay" name="Macro">
+
+        <WordDetect   attribute="Instruction" context="#pop#pop#pop" String=".endm" endRegion="Macro" />
+
+        <!-- match macro parameters -->
+        <Detect2Chars attribute="Macro Special Parameter" context="#stay" char="\" char1="@"/>
+        <RegExpr      attribute="Macro Parameter" context="#stay" String="\\[A-Za-z_.$][A-Za-z0-9_.$]+"/>
+
+        <!-- add some syntactic coloration / completion -->
+        <keyword      attribute="Pseudo Instruction" context="#stay" String="pseudo_instructions"/>
+        <keyword      attribute="Instruction" context="#stay" String="instructions"/>
+        <keyword      attribute="Thumb Instruction" context="#stay" String="thumb_instructions" />
+
+        <keyword      attribute="Core Register" context="#stay" String="core_registers"/>
+        <keyword      attribute="Core Register Alias" context="#stay" String="alias_core_registers"/>
+        <keyword      attribute="VFP Register" context="#stay" String="vfp_registers"/>
+        <keyword      attribute="FPA Register" context="#stay" String="fpa_registers"/>
+
+        <keyword      attribute="Coprocessor" context="#stay" String="coprocessor" />
+        <keyword      attribute="Coprocessor Register" context="#stay" String="coprocessor_registers" />
+
+        <keyword      attribute="AS Directive" context="#stay" String="directives"/>
+        <keyword      attribute="Data Type" context="#stay" String="data_type"/>
+
+        <RegExpr      attribute="Indirect" context="#stay" String="\[|\]"/>
+        <RegExpr      attribute="Hex" context="#stay" String="(#|=|\$|)0x[0-9A-F]+"/>
+        <RegExpr      attribute="Octal" context="#stay" String="(#|=|\$|)0[0-7]+"/>
+        <RegExpr      attribute="Binary" context="#stay" String="(#|=|\$|)[bB][01]+" />
+        <RegExpr      attribute="Decimal" context="#stay" String="(#|=|\$|)[-+]?[0-9]+" />
+        <RegExpr      attribute="Float" context="#stay" String="0[fFeEdD][-+]?[0-9]*\.?[0-9]*[eE]?[-+]?[0-9]+" />
+
+        <RegExpr      attribute="Char" context="#stay" String="'(\\x[0-9a-fA-F][0-9a-fA-F]?|\\[0-7]?[0-7]?[0-7]?|\\.|.)'" />
+        <DetectChar   attribute="String" context="StringMacro" char="&quot;" />
+
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+      </context>
+
+
+      <!-- for section names -->
+      <context        attribute="Section Name" lineEndContext="#pop" name="SectionDirective">
+        <DetectSpaces attribute="Normal Text" />
+
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+        <DetectChar   attribute="Normal Text" context="#pop" char=";" />
+      </context>
+
+      <!-- for it[te]{0,3} conditional (completion purpose) -->
+      <context        attribute="Error" lineEndContext="#pop" name="Conditional">
+        <keyword      attribute="Conditional" context="#pop" String="conditional"/>
+        <DetectChar   attribute="IT Conditional Instruction" context="#stay" char="t" />
+        <DetectChar   attribute="IT Conditional Instruction" context="#stay" char="e" />
+        <DetectSpaces attribute="Normal Text" />
+
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+        <DetectChar   attribute="Normal Text" context="#pop" char=";" />
+      </context>
+
+      <!-- for setend (completion purpose) -->
+      <context        attribute="Error" lineEndContext="#pop" name="SetendInstruction">
+        <keyword      attribute="Endianness" context="#pop" String="endianness"/>
+        <DetectSpaces attribute="Normal Text" />
+
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+        <DetectChar   attribute="Normal Text" context="#pop" char=";" />
+      </context>
+
+      <!-- for cpsi[ed] (completion purpose) -->
+      <context        attribute="Error" lineEndContext="#pop" name="CPSIInstruction">
+        <DetectSpaces attribute="Normal Text" />
+        <DetectChar   attribute="CPSI[DE] iflags" context="#stay" char="a" />
+        <DetectChar   attribute="CPSI[DE] iflags" context="#stay" char="i" />
+        <DetectChar   attribute="CPSI[DE] iflags" context="#stay" char="f" />
+        <keyword      attribute="CPSI[DE] iflags" context="#pop" String="cpsi_iflags"/>
+        <DetectChar   attribute="Normal Text" context="CPSInstruction" char="," />
+
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+        <DetectChar   attribute="Normal Text" context="#pop" char=";" />
+      </context>
+
+      <context        attribute="Error" lineEndContext="#pop" name="CPSInstruction">
+        <DetectSpaces attribute="Normal Text" />
+        <keyword      attribute="CPS p_mode" context="#pop" String="cps_flags"/>
+
+        <IncludeRules context="Immediate" />
+
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+        <DetectChar   attribute="Normal Text" context="#pop" char=";" />
+      </context>
+
+      <context        attribute="Error" lineEndContext="#pop" name="FlexibleOP2">
+        <DetectSpaces attribute="Normal Text" />
+
+        <IncludeRules context="Immediate" />
+
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+        <DetectChar   attribute="Normal Text" context="#pop" char=";" />
+      </context>
+
+      <!-- some utility contexts -->
+      <context        attribute="Error" lineEndContext="#pop" name="Immediate">
+        <DetectSpaces attribute="Normal Text" />
+        <DetectChar   attribute="Immediate Value Marker" context="ImmNumber" char="#" />
+        <DetectChar   attribute="Immediate Value Marker" context="ImmNumber" char="$" />
+
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+        <DetectChar   attribute="Normal Text" context="#pop" char=";" />
+      </context>
+
+      <context        attribute="Error" lineEndContext="#pop" name="ImmNumber">
+        <RegExpr      attribute="Hex" context="#stay" String="0x[0-9A-F]+"/>
+        <RegExpr      attribute="Octal" context="#stay" String="0[0-7]+"/>
+        <RegExpr      attribute="Binary" context="#stay" String="[bB][01]+" />
+        <RegExpr      attribute="Decimal" context="#stay" String="[-+]?[0-9]+" />
+        <RegExpr      attribute="Float" context="#stay" String="0[fFeEdD][-+]?[0-9]*\.?[0-9]*[eE]?[-+]?[0-9]+" />
+
+        <RegExpr      attribute="Char" context="#stay" String="'(\\x[0-9a-fA-F][0-9a-fA-F]?|\\[0-7]?[0-7]?[0-7]?|\\.|.)'" />
+        <DetectChar   attribute="String" context="String" char="&quot;" />
+
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+        <DetectChar   attribute="Normal Text" context="#pop" char=";" />
+
+        <DetectSpaces attribute="Normal Text" />
+      </context>
+
+      <!-- for data types directive (.int and al') -->
+      <context        attribute="Normal Text" lineEndContext="#pop" name="DataType">
+        <HlCOct       attribute="Octal" context="#stay"/>
+        <HlCHex       attribute="Hex" context="#stay"/>
+        <RegExpr      attribute="Binary" context="#stay" String="[bB][01]+" />
+        <Int          attribute="Decimal" context="#stay" />
+        <Float        attribute="Float" context="#stay" />
+
+        <RegExpr      attribute="Char" context="#stay" String="'(\\x[0-9a-fA-F][0-9a-fA-F]?|\\[0-7]?[0-7]?[0-7]?|\\.|.)'" />
+        <DetectChar   attribute="String" context="String" char="&quot;" />
+
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+
+        <DetectChar   attribute="Normal Text" context="#pop" char=";" />
+      </context>
+
+      <!-- what could be past a directive -->
+      <context        attribute="Normal Text" lineEndContext="#pop" name="Directive">
+        <keyword      attribute="Core Register" context="#stay" String="core_registers"/>
+        <keyword      attribute="Core Register Alias" context="#stay" String="alias_core_registers"/>
+        <keyword      attribute="VFP Register" context="#stay" String="vfp_registers"/>
+        <keyword      attribute="FPA Register" context="#stay" String="fpa_registers"/>
+
+        <keyword      attribute="Coprocessor" context="#stay" String="coprocessor" />
+        <keyword      attribute="Coprocessor Register" context="#stay" String="coprocessor_registers" />
+
+        <RegExpr      attribute="Indirect" context="#stay" String="\[|\]"/>
+        <RegExpr      attribute="Hex" context="#stay" String="(#|=|\$|)0x[0-9A-F]+"/>
+        <RegExpr      attribute="Octal" context="#stay" String="(#|=|\$|)0[0-7]+"/>
+        <RegExpr      attribute="Binary" context="#stay" String="(#|=|\$|)[bB][01]+" />
+        <RegExpr      attribute="Decimal" context="#stay" String="(#|=|\$|)[-+]?[0-9]+" />
+        <RegExpr      attribute="Float" context="#stay" String="0[fFeEdD][-+]?[0-9]*\.?[0-9]*[eE]?[-+]?[0-9]+" />
+
+        <RegExpr      attribute="Local Label Use" context="#stay" String="[A-Za-z0-9_.$]+\$" firstNonSpace="false" />
+        <RegExpr      attribute="Local Label Use" context="#stay" String="\.[A-Za-z0-9_.$]+" firstNonSpace="false" />
+        <RegExpr      attribute="Label Use" context="#stay" String="[A-Za-z0-9_.$]+" firstNonSpace="false"/>
+
+        <RegExpr      attribute="Char" context="#stay" String="'(\\x[0-9a-fA-F][0-9a-fA-F]?|\\[0-7]?[0-7]?[0-7]?|\\.|.)'" />
+        <DetectChar   attribute="String" context="String" char="&quot;" />
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="/" char1="*"  beginRegion="Comment"/>
+        <DetectChar   attribute="Comment" context="Commentar 2" char="@"/>
+
+        <DetectChar   attribute="Normal Text" context="#pop" char=";" />
+      </context>
+
+
+      <!-- comments -->
+      <context        attribute="Comment" lineEndContext="#stay" name="Commentar 1">
+        <IncludeRules context="##Alerts" />
+        <IncludeRules context="##Doxygen" />
+        <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/"  endRegion="Comment"/>
+      </context>
+
+      <context        attribute="Comment" lineEndContext="#pop" name="Commentar 2">
+        <IncludeRules context="##Alerts" />
+        <IncludeRules context="##Doxygen" />
+      </context>
+
+      <context        attribute="Comment" lineEndContext="#stay" name="Commentar 3">
+        <IncludeRules context="##Alerts" />
+      </context>
+
+      <!-- strings -->
+      <context attribute="String" lineEndContext="#pop" name="String">
+        <LineContinue attribute="String" context="#stay"/>
+        <HlCStringChar attribute="String Char" context="#stay"/>
+        <DetectChar attribute="String" context="#pop" char="&quot;"/>
+      </context>
+      <context attribute="String" lineEndContext="#pop" name="StringMacro">
+        <LineContinue attribute="String" context="#stay"/>
+
+        <!-- match macro parameters -->
+        <Detect2Chars attribute="Macro Special Parameter" context="#stay" char="\" char1="@"/>
+        <RegExpr      attribute="Macro Parameter" context="#stay" String="\\[A-Za-z_.$][A-Za-z0-9_.$]+"/>
+
+        <HlCStringChar attribute="String Char" context="#stay"/>
+
+        <DetectChar attribute="String" context="#pop" char="&quot;"/>
+      </context>
+    </contexts>
+
+    <itemDatas>
+      <itemData name="Normal Text"          defStyleNum="dsNormal"   />
+      <itemData name="Instruction"          defStyleNum="dsKeyword"  spellChecking="false"/>
+      <itemData name="Core Register"        defStyleNum="dsDataType" spellChecking="false"/>
+      <itemData name="Core Register Alias"  defStyleNum="dsDataType" spellChecking="false" italic="true"/>
+      <itemData name="VFP Register"         defStyleNum="dsDataType" spellChecking="false"/>
+      <itemData name="FPA Register"         defStyleNum="dsDataType" spellChecking="false"/>
+      <itemData name="Macro Parameter"      defStyleNum="dsChar"     italic="true"/>
+      <itemData name="Macro Special Parameter" defStyleNum="dsChar"  bold="true"/>
+      <itemData name="Label"                defStyleNum="dsFunction"   />
+      <itemData name="Label Use"            defStyleNum="dsFunction"   />
+      <itemData name="Local Label"          defStyleNum="dsFunction" italic="true"/>
+      <itemData name="Local Label Use"      defStyleNum="dsFunction" italic="true"/>
+      <itemData name="Indirect"             defStyleNum="dsKeyword" spellChecking="false"/>
+      <itemData name="AS Directive"         defStyleNum="dsKeyword" spellChecking="false"/>
+      <itemData name="Section Name"         defStyleNum="dsRegionMarker" spellChecking="false"/>
+      <itemData name="Pseudo Instruction"   defStyleNum="dsKeyword" spellChecking="false" italic="true"/>
+      <itemData name="Thumb Instruction"    defStyleNum="dsKeyword" spellChecking="false"/>
+      <itemData name="Endianness"           defStyleNum="dsString"  spellChecking="false"/>
+      <itemData name="Conditional"          defStyleNum="dsKeyword" spellChecking="false"/>
+      <itemData name="IT Conditional Instruction" defStyleNum="dsOthers" spellChecking="false" bold="true"/>
+      <itemData name="CPSI[DE] iflags"      defStyleNum="dsOthers" spellChecking="false" bold="true"/>
+      <itemData name="CPS p_mode"           defStyleNum="dsDecVal" spellChecking="false" bold="true"/>
+      <itemData name="IT Conditional Instruction" defStyleNum="dsOthers" spellChecking="false" bold="true"/>
+      <itemData name="Operand2"             defStyleNum="dsOthers"  spellChecking="false"/>
+      <itemData name="Coprocessor"          defStyleNum="dsOthers"  spellChecking="false"/>
+      <itemData name="Coprocessor Register" defStyleNum="dsDataType" spellChecking="false"/>
+      <itemData name="Data Type"            defStyleNum="dsDataType" spellChecking="false"/>
+      <itemData name="Immediate Value Marker" defStyleNum="dsDecVal" spellChecking="false" />
+      <itemData name="Decimal"              defStyleNum="dsDecVal"  spellChecking="false" />
+      <itemData name="Octal"                defStyleNum="dsBaseN"   spellChecking="false" />
+      <itemData name="Hex"                  defStyleNum="dsBaseN"   spellChecking="false" />
+      <itemData name="Binary"               defStyleNum="dsBaseN"   spellChecking="false" />
+      <itemData name="Float"                defStyleNum="dsFloat"   spellChecking="false" />
+      <itemData name="Char"                 defStyleNum="dsChar"    spellChecking="false" />
+      <itemData name="String"               defStyleNum="dsString"   />
+      <itemData name="String Char"          defStyleNum="dsChar"     />
+      <itemData name="Symbol"               defStyleNum="dsNormal"  spellChecking="false" />
+      <itemData name="Comment"              defStyleNum="dsComment"  />
+      <itemData name="Preprocessor"         defStyleNum="dsOthers"  spellChecking="false"  />
+      <itemData name="Error"                defStyleNum="dsError"   spellChecking="false"/>
+    </itemDatas>
+  </highlighting>
+
+  <general>
+    <comments>
+      <comment name="singleLine"  start="#"/>
+      <comment name="multiLine"  start="/*" end="*/" />
+    </comments>
+    <keywords casesensitive="0" weakDeliminator=".#"/>
+    <folding indentationsensitive="true" />
+  </general>
+</language>
